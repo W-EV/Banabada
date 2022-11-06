@@ -17,18 +17,18 @@ import java.util.List;
 @Entity(name="User")
 @Table(name="User")
 public class UserEntity {
-        // 기본키
+    // 기본키
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String userId;
+    private String id;
 
     // 사용자 이름
     @Column(nullable = false, unique = true)
     private String username;
     // 사용자 PW
     @Column(nullable = false)
-    // @jsonIgnore : json에서 숨김처리
+    // @jsonIgnore : json에서 숨김처리 예정
     private String password;
     // 사용자 이메일
     @Column(nullable = false)

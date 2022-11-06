@@ -22,7 +22,7 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String categoryId;  // 카테고리 ID (PK)
+    private String id;  // 카테고리 ID (PK)
 
     private String productId;   // 상품 ID (FK)
 

@@ -15,17 +15,20 @@ import javax.persistence.*;
 @Entity(name="Review")
 @Table(name="Review")
 public class ReviewEntity {
-        // 기본키
+    // 기본키
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String reviewId;    // 리뷰 ID
+    private String id;    // 리뷰 ID
 
-        // 외래키
+    // 외래키
     // 사용자 ID
     @ManyToOne
     @JoinColumn(name="userId")
     private UserEntity user;
+    // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
+    // private String userId;로 변경 고민 중
+
     // 주문 상품 ID
     @ManyToOne
     @JoinColumn(name="orderId")
@@ -41,3 +44,4 @@ public class ReviewEntity {
 
 
 }
+

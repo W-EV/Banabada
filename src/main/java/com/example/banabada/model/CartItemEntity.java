@@ -17,14 +17,14 @@ import java.util.List;
 @Entity(name="CartItem")
 @Table(name="CartItem")
 public class CartItemEntity {
-        // 기본 키
+    // 기본 키
     // 장바구니 상품 ID
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String cartItemId;
+    private String id;
 
-        // 외래 키
+    // 외래 키
     // 장바구니 ID
     @ManyToOne
     @JoinColumn(name="cartId")
