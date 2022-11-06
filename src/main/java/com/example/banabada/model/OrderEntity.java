@@ -21,18 +21,20 @@ import java.util.List;
 @Entity(name="Order")
 @Table(name="Order")
 public class OrderEntity {
-        // 기본키
+    // 기본키
     // 주문 ID
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String orderId;
+    private String id;
 
-        // 외래 키
+    // 외래 키
     // 사용자 ID
     @OneToOne
     @JoinColumn(name="userId")
     private UserEntity user;
+    // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
+    // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함
     // 주문 상품 ID
     @OneToMany(mappedBy="order")
     private List<OrderItemEntity> orderItemList = new ArrayList<OrderItemEntity>();

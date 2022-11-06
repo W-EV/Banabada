@@ -18,12 +18,12 @@ import java.util.List;
 @Entity(name="Product")
 @Table(name="Product")
 public class ProductEntity {
-        // 기본키
+    // 기본키
     // 상품 ID
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String productId;
+    private String id;
 
     // 상품 이미지
     // private Image productImg; // 참고 study.txt [1]

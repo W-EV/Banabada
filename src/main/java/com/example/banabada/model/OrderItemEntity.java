@@ -16,14 +16,14 @@ import java.util.Date;
 @Entity(name="OrderItem")
 @Table(name="OrderItem")
 public class OrderItemEntity {
-        // 기본 키
+    // 기본 키
     // 주문 상품 ID
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String orderItemId;
+    private String id;
 
-        // 외래 키
+    // 외래 키
     // 주문 ID
     @ManyToOne
     @JoinColumn(name="orderId")
