@@ -21,6 +21,9 @@ public class OrdersController {
     int totalPrice = 0;
     for 문으로 cartitemCOUNT * cartITEMPRICE returncon
 
+    //장바구니 삭제 구현은??
+
+
 
     @GetMapping("/orderList")
 

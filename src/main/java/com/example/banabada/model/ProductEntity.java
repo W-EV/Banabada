@@ -26,7 +26,7 @@ public class ProductEntity {
     private String id;
 
     // 상품 이미지
-    // private Image productImg; // 참고 study.txt [1]
+    // private Image productImg; // 참고 study.txt [1] 이미지 조회 경로
     // 상품 상세설명
     private String productInfo;
     // 상품 가격
