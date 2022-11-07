@@ -35,6 +35,8 @@ public class CartEntity {
     @OneToMany(mappedBy="cart")
     private List<CartItemEntity> cartItemList = new ArrayList<CartItemEntity>();
 
+    private boolean yes; // true : 기본적으로 선택되어있음...??
+
 
 
 }
