@@ -12,7 +12,7 @@ const ProductList = () => {
 
     return (
         <div>
-            <ul>
+            <ul className="products">
                 {data?.map(product=> ( //백엔드와 데이터명 맞춰서 수정할 것
                     <ProductItem {... product} key={product.id}/>
                 ))}
