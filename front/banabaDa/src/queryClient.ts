@@ -43,6 +43,9 @@ import {
                 'Access-Control-Allow-Origin': BASE_URL
             }
         }
+
+        
+
         const res = await fetch(url, fetchOptions)
         const json = await res.json()
         return json //json으로 바꾸어 리턴
