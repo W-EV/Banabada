@@ -21,9 +21,9 @@ public class ProductEntity {
     // 기본키
     // 상품 ID
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     // 상품명
     @Column(nullable = false)

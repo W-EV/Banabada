@@ -18,9 +18,9 @@ public class PaymentEntity {
     // 기본 키
     // 결제 ID
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     // 외래 키
     // 주문 ID(결제 완료 후 OrderEntity/payChekc=True)

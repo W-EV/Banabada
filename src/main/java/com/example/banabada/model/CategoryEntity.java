@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Builder
 @NoArgsConstructor
@@ -19,10 +16,13 @@ import javax.persistence.Table;
 @Table(name="Categories")
 // 추가기능 Entity
 public class CategoryEntity {
+
+    // 기본키
+    // 카테고리 ID (PK)
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;  // 카테고리 ID (PK)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     private String productId;   // 상품 ID (FK)
 
