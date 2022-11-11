@@ -24,11 +24,10 @@ public class UserEntity {
     private String id;
 
     // 사용자 이름
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true) // 사용자 id, 즉 userId를 따로 주지 않고 이름으로 구분(unique)
     private String username;
     // 사용자 PW
-    @Column(nullable = false)
-    // @jsonIgnore : json에서 숨김처리 예정
+    @Column(nullable = false) // @jsonIgnore : json에서 숨김처리 예정
     private String password;
     // 사용자 이메일
     @Column(nullable = false)
@@ -38,7 +37,7 @@ public class UserEntity {
     // 사용자 전화번호
     private String phoneNumber;
     // 구독 여부(OrderEntity/payCheck=True인 OrderEntity가 있으면 True)
-    @Column(columnDefinition = "boolean default false")
+    //@Column(columnDefinition = "boolean default false")
     private Boolean subscription;
 
     /*
@@ -51,6 +50,7 @@ public class UserEntity {
     */
 
 }
+
 
 
 

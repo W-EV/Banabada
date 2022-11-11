@@ -25,11 +25,11 @@ public class PaymentEntity {
     // 외래 키
     // 주문 ID(결제 완료 후 OrderEntity/payChekc=True)
     @OneToOne
-    @JoinColumn(name="orderId")
+    @JoinColumn(name="id")
     private OrderEntity order;
     // 사용자 ID(결제 정보)
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="id")
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중

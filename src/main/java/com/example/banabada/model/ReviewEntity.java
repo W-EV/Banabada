@@ -24,14 +24,14 @@ public class ReviewEntity {
     // 외래키
     // 사용자 ID
     @ManyToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="id")
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중
 
     // 주문 상품 ID
     @ManyToOne
-    @JoinColumn(name="orderId")
+    @JoinColumn(name="id")
     private OrderEntity order;
 
     // 리뷰 내용
@@ -40,7 +40,6 @@ public class ReviewEntity {
     private String reviewTitle;
     // 확장자명
     private String extName;
-    // ImageField (구현 x) : private Image(?) reviewImg;
 
 
 }

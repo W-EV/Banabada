@@ -1,21 +1,22 @@
 package com.example.banabada.dto;
 
-import com.example.banabada.model.OrderEntity;
+import com.example.banabada.model.CartItemEntity;
 import com.example.banabada.model.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ReviewDTO {
+public class CartDTO {
     private String id;
-    private UserEntity user; // userId 추출
-    private OrderEntity order;
-    private String reviewContent;
-    private String reviewTitle;
-    private String extName;
+    private UserEntity user;
+    private List<CartItemEntity> cartItemList = new ArrayList<CartItemEntity>();
+    private boolean yes;
 }

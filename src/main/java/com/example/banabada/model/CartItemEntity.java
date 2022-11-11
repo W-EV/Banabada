@@ -27,11 +27,11 @@ public class CartItemEntity {
     // 외래 키
     // 장바구니 ID
     @ManyToOne
-    @JoinColumn(name="cartId")
+    @JoinColumn(name="id")
     private CartEntity cart;
     // 상품 ID
     @ManyToOne
-    @JoinColumn(name="productId")
+    @JoinColumn(name="id")
     private ProductEntity product;
 
 }

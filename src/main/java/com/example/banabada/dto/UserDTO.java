@@ -1,5 +1,14 @@
 package com.example.banabada.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class UserDTO {
 
     private String id;
@@ -10,8 +19,8 @@ public class UserDTO {
     private String phoneNumber;
     private String subscription;
 
-    // +
-    private String token;
+    // private String token;
+    // private String errorMsg;
 
 
 }
