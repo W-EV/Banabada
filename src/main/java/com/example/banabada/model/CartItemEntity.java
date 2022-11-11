@@ -14,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="CartItem")
-@Table(name="CartItem")
+@Entity
+@Table(name="CartItems")
 public class CartItemEntity {
     // 기본 키
     // 장바구니 상품 ID
@@ -27,11 +27,11 @@ public class CartItemEntity {
     // 외래 키
     // 장바구니 ID
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private CartEntity cart;
     // 상품 ID
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private ProductEntity product;
 
 }

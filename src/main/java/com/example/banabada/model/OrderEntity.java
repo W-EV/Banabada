@@ -18,8 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="Order")
-@Table(name="Order")
+@Entity
+@Table(name="Orders")
 public class OrderEntity {
     // 기본키
     // 주문 ID
@@ -31,7 +31,7 @@ public class OrderEntity {
     // 외래 키
     // 사용자 ID
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함

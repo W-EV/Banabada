@@ -13,8 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="OrderItem")
-@Table(name="OrderItem")
+@Entity
+@Table(name="OrderItems")
 public class OrderItemEntity {
     // 기본 키
     // 주문 상품 ID
@@ -26,10 +26,10 @@ public class OrderItemEntity {
     // 외래 키
     // 주문 ID
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private CartEntity order;
     // 상품 ID
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private ProductEntity product;
 }

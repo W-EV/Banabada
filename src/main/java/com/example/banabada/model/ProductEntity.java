@@ -15,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="Product")
-@Table(name="Product")
+@Entity
+@Table(name="Products")
 public class ProductEntity {
     // 기본키
     // 상품 ID

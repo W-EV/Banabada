@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="Category")
-@Table(name="Category")
+@Entity
+@Table(name="Categories")
 // 추가기능 Entity
 public class CategoryEntity {
     @Id
