@@ -14,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="Cart")
-@Table(name="Cart")
+@Entity
+@Table(name="Carts")
 public class CartEntity {
     // 기본 키
     // 장바구니 ID
@@ -27,7 +27,7 @@ public class CartEntity {
     // 외래 키
     // 사용자 ID
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함

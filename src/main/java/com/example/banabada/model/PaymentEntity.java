@@ -12,8 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="Payment")
-@Table(name="Payment")
+@Entity
+@Table(name="Payments")
 public class PaymentEntity {
     // 기본 키
     // 결제 ID
@@ -25,11 +25,11 @@ public class PaymentEntity {
     // 외래 키
     // 주문 ID(결제 완료 후 OrderEntity/payChekc=True)
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private OrderEntity order;
     // 사용자 ID(결제 정보)
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중

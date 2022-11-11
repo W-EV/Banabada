@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,11 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Builder
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="User")
-@Table(name="User")
+@Entity
+@Table(name="Users")
 public class UserEntity {
     // 기본키
     @Id
