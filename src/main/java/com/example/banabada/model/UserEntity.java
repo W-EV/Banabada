@@ -21,9 +21,8 @@ import java.util.List;
 public class UserEntity {
     // 기본키
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     // 사용자 이름
     @Column(nullable = false, unique = true) // 사용자 id, 즉 userId를 따로 주지 않고 이름으로 구분(unique)

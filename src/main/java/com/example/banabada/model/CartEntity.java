@@ -20,9 +20,8 @@ public class CartEntity {
     // 기본 키
     // 장바구니 ID
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     // 외래 키
     // 사용자 ID

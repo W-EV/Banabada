@@ -16,10 +16,10 @@ import javax.persistence.*;
 @Table(name="Reviews")
 public class ReviewEntity {
     // 기본키
+    // 리뷰 ID
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;    // 리뷰 ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     // 외래키
     // 사용자 ID
