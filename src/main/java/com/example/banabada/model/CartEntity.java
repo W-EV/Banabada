@@ -27,7 +27,7 @@ public class CartEntity {
     // 외래 키
     // 사용자 ID
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="id")
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함
@@ -35,7 +35,7 @@ public class CartEntity {
     @OneToMany(mappedBy="cart")
     private List<CartItemEntity> cartItemList = new ArrayList<CartItemEntity>();
 
-    private boolean yes; // true : 기본적으로 선택되어있음...??
+    private boolean yes; // true : 기본적으로 선택하는 걸로 결정!
 
 
 

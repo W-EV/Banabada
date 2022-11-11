@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class MypageController {
 
     /*/ 마이페이지, 구독 상품 (관리) 페이지
-    @GetMapping("{userId}")
+    @GetMapping("{username}")
 
 
-    @GetMapping("{userId}/supscription")
+    @GetMapping("{username}/subscription")
 
     //*/
 }

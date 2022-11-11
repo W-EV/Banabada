@@ -31,7 +31,7 @@ public class OrderEntity {
     // 외래 키
     // 사용자 ID
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="id")
     private UserEntity user;
     // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
     // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함
@@ -40,12 +40,12 @@ public class OrderEntity {
     private List<OrderItemEntity> orderItemList = new ArrayList<OrderItemEntity>();
 
     // 주문날짜
-    @Column(columnDefinition = "datetime default NOW()")
+    //@Column(columnDefinition = "datetime default NOW()")
     private Date orderDate;
     // 총 주문량
     private int total;
     // 결제여부(결제 후 결정)
-    @Column(columnDefinition = "boolean default false")
+    //@Column(columnDefinition = "boolean default false")
     private boolean payCheck;
     // 주문 횟수?? OrderHistory??
     private int orderCnt;

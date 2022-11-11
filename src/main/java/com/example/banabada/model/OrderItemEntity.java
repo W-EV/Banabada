@@ -26,10 +26,10 @@ public class OrderItemEntity {
     // 외래 키
     // 주문 ID
     @ManyToOne
-    @JoinColumn(name="orderId")
+    @JoinColumn(name="id")
     private CartEntity order;
     // 상품 ID
     @ManyToOne
-    @JoinColumn(name="productId")
+    @JoinColumn(name="id")
     private ProductEntity product;
 }

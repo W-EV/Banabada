@@ -1,5 +1,7 @@
 package com.example.banabada.dto;
 
+import com.example.banabada.model.CartEntity;
+import com.example.banabada.model.ProductEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CategoryDTO {
+public class CartItemDTO {
     private String id;
-    private String productId;
-    private String categoryName;
+    private CartEntity cart;
+    private ProductEntity product;
 }

@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 public class PostController {
+    // 구독 상품 게시글 등록, 수정, 삭제 페이지
+    // admin 권한. 추후 사용 여부 논의
 
     /* 상품 등록 (POST) :: 추후 사용 논의
     @PostMapping("/item/new/itemedit")
