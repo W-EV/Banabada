@@ -25,7 +25,7 @@ public class UserEntity {
     private Long id;
 
     // 사용자 이름
-    @Column(nullable = false) // 사용자 id
+    @Column(nullable = false, unique = true) // 사용자 id
     private String username;
     // 사용자 PW
     @Column(nullable = false)

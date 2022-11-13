@@ -3,7 +3,9 @@ package com.example.banabada.controller;
 import com.example.banabada.dto.ResponseDTO;
 import com.example.banabada.dto.UserDTO;
 import com.example.banabada.model.UserEntity;
+import com.example.banabada.security.TokenProvider;
 import com.example.banabada.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.UserDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("banabada/auth")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TokenProvider tokenProvider;
 
     // 회원가입 페이지
     @PostMapping("/signup")
@@ -45,7 +51,6 @@ public class UserController {
                     .badRequest()
                     .body(responseDTO);
         }
-
     }
 
 
@@ -60,9 +65,12 @@ public class UserController {
 
         // DB에 있는 사용자라면 UserEntity를 DTO로 변환하여 반환
         if (user != null) {
+            // 토큰 생성
+            final String token = tokenProvider.create(user);
             final UserDTO responseUserDTO = UserDTO.builder()
                     .email(user.getEmail())
                     .id(user.getId())
+                    .token(token)
                     .build();
             return ResponseEntity.ok().body(responseUserDTO);
         } else {
