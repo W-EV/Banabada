@@ -25,21 +25,22 @@ public class UserEntity {
     private Long id;
 
     // 사용자 이름
-    @Column(nullable = false, unique = true) // 사용자 id, 즉 userId를 따로 주지 않고 이름으로 구분(unique)
+    @Column(nullable = false) // 사용자 id
     private String username;
     // 사용자 PW
-    @Column(nullable = false) // @jsonIgnore : json에서 숨김처리 예정
+    @Column(nullable = false)
     private String password;
     // 사용자 이메일
     @Column(nullable = false)
     private String email;
+
     // 사용자 주소
     private String address;
     // 사용자 전화번호
     private String phoneNumber;
     // 구독 여부(OrderEntity/payCheck=True인 OrderEntity가 있으면 True)
     //@Column(columnDefinition = "boolean default false")
-    private Boolean subscription;
+    private boolean subscription;  // Boolean : Wrapper 클래스, boolean : 기본 클래스
 
     /*
     // 마이페이지에서 사용자의 리뷰들 보일 때 사용
