@@ -1,5 +1,6 @@
 package com.example.banabada.service;
 
+import com.example.banabada.model.ProductEntity;
 import com.example.banabada.model.UserEntity;
 import com.example.banabada.persistence.UserRepository;
 import lombok.extern.slf4j.Slf4j;
