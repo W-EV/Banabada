@@ -25,11 +25,11 @@ public class CartEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
-    private User user; // 구매자
+    private UserEntity user; // 구매자
 
     private int count; // 카트에 담긴 총 상품 개수
 
@@ -44,7 +44,7 @@ public class CartEntity {
         this.createDate = LocalDate.now();
     }
 
-    public static CartEntity createCart(User user) {
+    public static CartEntity createCart(UserEntity user) {
         CartEntity cart = new CartEntity();
         cart.setCount(0);
         cart.setUser(user);
