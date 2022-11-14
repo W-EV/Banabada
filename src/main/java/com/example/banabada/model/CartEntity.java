@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @Table(name="Carts")
 public class CartEntity {
-    // 기본 키
+    // 기본 키 안녕하세요 다은입니다.
     // 장바구니 ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

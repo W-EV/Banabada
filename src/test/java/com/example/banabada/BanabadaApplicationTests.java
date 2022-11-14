@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class BanabadaApplicationTests {
 
 	@Test
-	void contextLoads() { //다은의 테스트
+	void contextLoads() {
 	}
 
 }
