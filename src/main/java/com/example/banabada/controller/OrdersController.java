@@ -17,23 +17,31 @@ public class OrdersController {
 
 
 
-    // 장바구니에 물건 넣기
-    @PostMapping("/username/cart/{id}/{itemId}")
+    /*
+    //장바구니에 물건 넣기
+    @PostMapping("/username/cart/{id}/{productId}")
     public String addCartItem(@PathVariable("id") Integer id, @PathVariable("itemId") Integer itemId, int amount) {
 
-        UserDatabase userPageService; //@@Service 만들 필요 있음
+        UserDatabase userPageService = null;
+        //@@Service 만들 필요 있음..??
+
         User user = userPageService.findUser(id);
         Object itemService;
+         오류 : CartService 없어서 >> CartService 따로 만들건지, 여기에? 어떻게?
         AbstractReadWriteAccess.Item item = ProductEntity.itemView(itemId);
 
-        Object CartEntity; //임시로 변경.. CartService 만들 필요
+        Object CartEntity = null; //임시로 변경.. CartService 만들 필요
         CartEntity.addCart(user, item, amount);
 
         return "redirect:/item/view/{itemId}";
-    }
 
-}
-/* 오류해결못함1114
+
+    */
+
+
+
+
+/* 오류해결못함1114, CartController 따로 만들어야 함
 
     // 장바구니 담기
     @Transactional
@@ -70,6 +78,10 @@ public class OrdersController {
         // 카트 상품 총 개수 증가
         cart.setCount(cart.getCount()+amount);
 
+
     }
+        //총 상품 금액 표시
+        //어쩌고..
 
  */
+    }

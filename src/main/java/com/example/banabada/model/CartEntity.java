@@ -23,12 +23,15 @@ import java.util.List;
 //CartEntity 구현 1114수정
 public class CartEntity {
 
+    //기본키
+    //장바구니 ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name="system-uuid",strategy = "uuid")
     private String id;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="username") //entity 내부에서 joincolum 이름이 같으면 안됨
     private UserEntity user; // 구매자
 
     private int count; // 카트에 담긴 총 상품 개수
@@ -37,7 +40,7 @@ public class CartEntity {
     private List<CartItemEntity> cartItems = new ArrayList<>();
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private LocalDate createDate; // 날짜
+    private LocalDate createDate; // 날짜(장바구니 담은 날짜, 필요한 이유는 ㅁㄹ)
 
     @PrePersist
     public void createDate(){

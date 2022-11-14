@@ -47,11 +47,11 @@ import java.util.List;
             return cartItem;
         }
 
-        // 이미 담겨있는 물건 또 담을 경우 수량 증가
+        // 이미 담겨있는 물건 또 담을 경우 수량을 증가시키기
         public void addCount(int count) {
             this.count += count;
         }
 
     }
 
-}
+
