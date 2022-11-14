@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.User;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,27 +19,36 @@ import java.util.List;
 @Data
 @Entity(name="Cart")
 @Table(name="Cart")
+
+//CartEntity 구현 1114수정
 public class CartEntity {
-    // 기본 키
-    // 장바구니 ID
+
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    // 외래 키
-    // 사용자 ID
-    @OneToOne
-    @JoinColumn(name="userId")
-    private UserEntity user;
-    // 스프링 어노테이션 @AuthenticationPrincipal 사용하여 세션정보 넘길 수 있음
-    // private String userId;로 변경 고민 중  --> OneToOne도 가능한지 봐야 함
-    // 장바구니 상품 ID
-    @OneToMany(mappedBy="cart")
-    private List<CartItemEntity> cartItemList = new ArrayList<CartItemEntity>();
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private User user; // 구매자
 
-    private boolean yes; // true : 기본적으로 선택되어있음...??
+    private int count; // 카트에 담긴 총 상품 개수
 
+    @OneToMany(mappedBy = "cart")
+    private List<CartItemEntity> cartItems = new ArrayList<>();
 
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private LocalDate createDate; // 날짜
+
+    @PrePersist
+    public void createDate(){
+        this.createDate = LocalDate.now();
+    }
+
+    public static CartEntity createCart(User user) {
+        CartEntity cart = new CartEntity();
+        cart.setCount(0);
+        cart.setUser(user);
+        return cart;
+    }
 
 }
