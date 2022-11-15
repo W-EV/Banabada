@@ -1,23 +1,24 @@
+import { useMutation } from 'react-query'
 import { Link } from "react-router-dom";
-import { Product } from "../../types";
-//<span>{rating}</span>
-const ProductItem  = ({
-    id,
-    category,
-    image,
-    price,
-    rating,
-    title
-} : Product) => (
-    <li className="products-item">
+import { ADD_CART } from '../../graphql/cart'
+import { Product } from '../../graphql/products'
+import { graphqlFetcher } from '../../queryClient'
+
+const ProductItem = ({ id, imageUrl, price, title, description, createdAt }: Product) => {
+    const { mutate: addCart } = useMutation((id: string) => graphqlFetcher(ADD_CART, { id }))
+  
+    return (
+      <li className="product-item">
         <Link to={`/products/${id}`}>
-            <p className="products-item_category">{category}</p>
-            <p className="products-item_title">{title}</p>
-            <img className="products-item_image" src={image} />
-            <span className="products-item_price">${price}</span>
-            <span className="products-item_rating">{rating.rate}</span>
+          <p className="product-item__title">{title}</p>
+          <img className="product-item__image" src={imageUrl} />
+          <span className="product-item__price">${price}</span>
         </Link>
-    </li>
-)
+        <button className="product-item__add-cart" onClick={() => addCart(id)}>
+          담기
+        </button>
+      </li>
+    )
+  }
 
 export default ProductItem
