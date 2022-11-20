@@ -16,7 +16,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     @Transactional
-    public void saveItem(Item item) { itemRepository.save(item);}
+    public void saveItem(Item item) { itemRepository.save(item); }
 
     //상품수정(페이지 없어서 고민)..
     @Transactional
