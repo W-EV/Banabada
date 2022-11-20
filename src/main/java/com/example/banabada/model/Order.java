@@ -13,7 +13,7 @@ import java.util.List;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "orders") //DB에 저장될때 orders로 저장, order는 예약어라 s붙여야함
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
@@ -44,4 +44,6 @@ public class Order {
     private Payment payment;                                    // 결제
 
 
+    public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem orderItem) {
+    }
 }
