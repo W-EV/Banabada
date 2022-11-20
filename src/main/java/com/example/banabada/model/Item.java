@@ -1,5 +1,6 @@
 package com.example.banabada.model;
 
+import com.example.banabada.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,6 +31,20 @@ public class Item {
     // 카테고리 추가 기능 --> 구현 안 함
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
+
+
+    //==비즈니스 로직==//
+
+    // 재고 증가
+    public void addStock(int quantity) { this.stockQuantity += quantity; }
+    // 재고 감소
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if(restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.stockQuantity += quantity;
+    }
 
 
     /* 기존 banabada(인강x)

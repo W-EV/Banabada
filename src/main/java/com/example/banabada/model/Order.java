@@ -44,4 +44,6 @@ public class Order {
     private Payment payment;                                    // 결제
 
 
+    public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem orderItem) {
+    }
 }
