@@ -24,8 +24,8 @@ public class Member {
     private String phoneNumber;                                     // 사용자 전화번호
     private boolean subscription;                                   // 구독 여부(주문 상품이 하나라도 있는 경우 true)
 
-    @Embedded
-    private Address address;                                        // 사용자 주소
+//  @Embedded
+    private String address;                                        // 사용자 주소
 
     @OneToMany(mappedBy = "member")                     // 양방향 관계
     private List<Order> orders = new ArrayList<>();                 // 주문
