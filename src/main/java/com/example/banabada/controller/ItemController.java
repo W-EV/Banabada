@@ -49,25 +49,25 @@ public class ItemController {
             item2.setProductInfo("호박, 고구마");
 
             Item item3 = new Item();
-            item1.setName("채소set3");
-            item1.setPrice(12000);
-            item1.setStockQuantity(7);
-            item1.setProductImgPath("image/path3");
-            item1.setProductInfo("당근, 오이");
+            item3.setName("채소set3");
+            item3.setPrice(12000);
+            item3.setStockQuantity(7);
+            item3.setProductImgPath("image/path3");
+            item3.setProductInfo("당근, 오이");
 
             Item item4 = new Item();
-            item1.setName("채소set4");
-            item1.setPrice(13000);
-            item1.setStockQuantity(8);
-            item1.setProductImgPath("image/path4");
-            item1.setProductInfo("오이,감자");
+            item4.setName("채소set4");
+            item4.setPrice(13000);
+            item4.setStockQuantity(8);
+            item4.setProductImgPath("image/path4");
+            item4.setProductInfo("오이,감자");
 
             Item item5 = new Item();
-            item1.setName("채소set5");
-            item1.setPrice(14000);
-            item1.setStockQuantity(9);
-            item1.setProductImgPath("image/path5");
-            item1.setProductInfo("방울토마토, 올리브");
+            item5.setName("채소set5");
+            item5.setPrice(14000);
+            item5.setStockQuantity(9);
+            item5.setProductImgPath("image/path5");
+            item5.setProductInfo("방울토마토, 올리브");
 
             itemService.saveItem(item1);
             itemService.saveItem(item2);
@@ -98,7 +98,7 @@ public class ItemController {
     public String list(Model model){
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
-        return "redirect:/banabada/products";
+        return "redirect:/item";
     }
 
 
