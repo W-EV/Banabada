@@ -39,14 +39,14 @@ public class OrderService {
 
         //결제 정보 설정
         Payment payment = new Payment();
-        payment.setPayMethod("따로 입력받아야 함"); //입력받는거 추후 수정
+        payment.setPayMethod("신용카드"); // 결제 수단 추후 입력받는 기능 혹은 제거
         payment.setTotalPrice(item.getPrice());
 
         //주문 상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count); //OrderItem에 메서드 생성해야함
 
         //주문 생성
-        Order order = Order.createOrder(member, delivery, payment, orderItem); //OrderItem에 메서드 생성해야함
+        Order order = Order.createOrder(member, delivery, payment, orderItem); //Order에 메서드 생성해야함
 
         //주문 저장
         orderRepository.save(order); //OrderItem, Delivery가 자동으로 persist
