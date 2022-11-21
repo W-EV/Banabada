@@ -25,7 +25,7 @@ public class MemberController {
     public String create(MemberForm form, BindingResult result) {  // (@Valid MemberForm memberForm --> @NotEmpty와 관련됨)
 
         if(result.hasErrors()) {  // 에러가 났을 경우
-            return "signup";  // 회원 가입 페이지로 다시 이동
+            return "signup";      // 회원 가입 페이지로 다시 이동
         }
 
         Member member = new Member();
@@ -36,7 +36,7 @@ public class MemberController {
         member.setEmail(form.getEmail());
         member.setAddress(form.getAddress());
 
-        memberService.join(member);
+        memberService.join(member);     // db에 사용자 생성
         return "redirect:/";  // 첫번째 페이지로 넘어감
     }
 

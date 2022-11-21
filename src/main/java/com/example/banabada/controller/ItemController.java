@@ -28,7 +28,7 @@ public class ItemController {
 
 
     // 상품 생성 기능 : Item 5개 미리 생성 (H2 데이터베이스 특성 문제, 게시글 등록 및 수정/삭제 기능 없애기 위함)
-    @GetMapping ("/banabada/createdb")
+    @GetMapping ("/banabada/createdb")  // Post
     public String alreadyCreate() {
         //Item 등록하기
         if (itemService.findItems() != null) {  ///??????????
@@ -97,6 +97,7 @@ public class ItemController {
     @GetMapping("/banabada/products")   // 상품 목록 페이지
     public String list(Model model){
         List<Item> items = itemService.findItems();
+        log.info("아이템이 존재하는지 다시 확인합니다." + items.get(3).getName());
         model.addAttribute("items", items);
         return "products";
     }
