@@ -98,7 +98,7 @@ public class ItemController {
     public String list(Model model){
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
-        return "redirect:/item";
+        return "products";
     }
 
 
@@ -106,8 +106,12 @@ public class ItemController {
     @GetMapping("/banabada/products/{itemId}")  // 상품 상세 페이지
     public String detailList(@PathVariable("itemId") Long itemId, Model model) {
         Item item = itemService.findOne(itemId);
-        model.addAttribute("item", item);
-        return "redirect:/banabada/products/{itemId}";
+        if (item != null) {
+            model.addAttribute("item", item);
+            return "productsDetail";
+        } else {
+            return "noproducts";    // 해당하는 상품 id가 존재하지 않습니다.
+        }
     }
 
 
