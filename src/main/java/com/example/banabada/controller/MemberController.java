@@ -40,6 +40,12 @@ public class MemberController {
         return "redirect:/";  // 첫번째 페이지로 넘어감
     }
 
+
+    /*
+     * 로그인 기능 추가 필요
+     */
+
+
     // 백엔드에서 Member DB 확인하는 용으로 사용함
     @GetMapping("/auth/members")
     public String list(Model model) {
