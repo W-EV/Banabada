@@ -81,7 +81,7 @@ public class ItemController {
             log.info("데이터베이스를 만들지 못했습니다.");
         }
 
-        return "/banabada"; // 홈 페이지
+        return "redirect:/banabada"; // 홈 페이지
     }
         /*
         private String name;
@@ -100,11 +100,12 @@ public class ItemController {
     }
 
 
-    // 상품 상세 페이지
-    @GetMapping("/banabada/products/{itemId}")
-    public String detailList(Model model) {
-        List<Item> item = itemService.findItems();
-        return null;
+    // 상품 상세 조회
+    @GetMapping("/banabada/products/{itemId}")  // 상품 상세 페이지
+    public String detailList(@PathVariable("itemId") Long itemId, Model model) {
+        Item item = itemService.findOne(itemId);
+        model.addAttribute("item", item);
+        return "redirect:/banabada/products/{itemId}";
     }
 
     /*
