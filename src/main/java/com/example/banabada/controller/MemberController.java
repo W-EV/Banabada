@@ -3,11 +3,17 @@ package com.example.banabada.controller;
 import com.example.banabada.model.Member;
 import com.example.banabada.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,6 +21,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    /*/ 회원 가입
     @GetMapping("/auth/signup")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
@@ -40,10 +47,61 @@ public class MemberController {
         return "redirect:/";  // 첫번째 페이지로 넘어감
     }
 
+     */
+    @GetMapping("/auth/signup")
+    public String signupForm() {
+        return "signup";
+    }
+
+    @PostMapping("/auth/signup")
+    public String signup(Member member) {
+        Member newMember = member;
+
+        memberService.join(member);
+        return "signin";
+    }
+
+
+    // 로그인
+    @GetMapping("/auth/signin")
+    public String signinForm() {
+        //model.addAttribute("memberLoginForm", new MemberLoginForm());
+        return "login";
+    }
 
     /*
-     * 로그인 기능 추가 필요
+    @GetMapping("/auth/signin")
+    public String singin(Model model, MemberLoginForm form, BindingResult result) {
+
+        model.addAttribute("memberLoginForm", new MemberLoginForm());
+
+        if(result.hasErrors()) {  // 에러가 났을 경우
+            return "login";      // 회원 가입 페이지로 다시 이동
+        }
+
+        Member member = new Member();
+
+        member.setEmail(form.getEmail());
+        member.setPassword(form.getPassword());
+
+        if (memberService.findByEmail(member.getEmail()) != null) {
+
+        }
+
+
+    }
+
      */
+
+
+    // 로그아웃
+    @GetMapping("/auth/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+        return "redirect:/login";
+    }
+
+
 
 
     // 백엔드에서 Member DB 확인하는 용으로 사용함
@@ -53,3 +111,28 @@ public class MemberController {
         return "memberList";
     }
 }
+
+
+/***  @Request param 관련
+
+ import org.springframework.web.bind.annotation.*;
+
+ @RestController // controller임을 알려주는 표시
+ @RequestMapping("/api") // 이곳으로 들어오는 API주소를 mapping, /api주소로 받겠다(localhost:8080/api)
+ public class GetController {
+
+ // RequestMapping과 다른 게 path만 설정해주면 됨, localhost:8080/api/getParameter?id=1234&password=abcd
+ @GetMapping("/getParameter")
+ public String getParameter(@RequestParam String id, @RequestParam(name = "password") String pwd) {
+ String password = "bbbb";
+ System.out.println("id: " + id);
+ System.out.println("password: "+pwd);
+
+ return id + pwd;
+ }
+
+ }
+
+
+
+ */

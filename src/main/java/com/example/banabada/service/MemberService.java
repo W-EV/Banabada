@@ -3,6 +3,7 @@ package com.example.banabada.service;
 import com.example.banabada.model.Member;
 import com.example.banabada.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ public class MemberService {
 
 //  @Autowired
     private final MemberRepository memberRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 /*/  @Autowired
     public MemberService(MemberRepository memberRepository) {
@@ -27,10 +29,16 @@ public class MemberService {
     public Long join(Member member) {
 
         validateDuplicateMember(member);
+        String rawPassword = member.getPassword();
+        String encPassword = bCryptPasswordEncoder.encode(rawPassword);
+        member.setPassword(encPassword);
+
         memberRepository.save(member);
+
         return member.getId();
 
     }
+
 
     // 회원 조회
 //  @Transactional(readOnly = true)
@@ -38,6 +46,7 @@ public class MemberService {
     // 회원 단건 조회
 //  @Transactional(readOnly = true)
     public Member findOne(Long memberId) { return memberRepository.findOne(memberId); }
+    public List<Member> findByEmail(String email) { return memberRepository.findByEmail(email); }
 
     private void validateDuplicateMember(Member member) {  // member name 속성 unique로 하는 것 추천
         List<Member> findMembers = memberRepository.findByName(member.getName());
