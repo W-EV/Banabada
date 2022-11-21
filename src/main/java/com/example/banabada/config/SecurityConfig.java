@@ -9,18 +9,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Security;
 
 @EnableWebSecurity // 해당 파일로 시큐리티 활성화
 @Configuration // IoC 등록
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig  {
 
     @Bean
     public BCryptPasswordEncoder encoder() {
@@ -28,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
+    @Bean
     protected void configure(HttpSecurity http) throws Exception {
 //      super.configure(http); // 이 코드 삭제하면 기존 시큐리티가 가진 모든 기능 비활성화
         http.csrf().disable(); // csrf 토큰 비활성화 코드
@@ -37,7 +40,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/banabada/auth/**", "/banabada/mypage/**", "/banabada/orders/**").authenticated() // 이 주소로 시작되면 인증이 필요
                 //.antMatchers(HttpMethod.POST,".spittles").authenticated()
-                .anyRequest().permitAll(); // 그게 아닌 모든 주소는 인증 필요 없음
+                .anyRequest().permitAll() // 그게 아닌 모든 주소는 인증 필요 없음
+
+                //H2 console 같이 하려구
+                .and()
+                            .csrf().ignoringAntMatchers("h2-console/**")
+                            .and()
+                            .headers()
+                            .addHeaderWriter(new XFrameOptionsHeaderWriter( //오류해결하기 > ignore후에
+                                    XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)) //SameOrigin
+                            .and()
+                            .formLogin()
+                            .loginPage("/auth/login")
+                            .defaultSuccessUrl("/");
+
+
 
         // 로그인
         http.formLogin() // form 로그인 인증 기능이 작동함
@@ -47,7 +64,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("memberEmail") // 아이디 파라미터명 설정, default: username
                 .passwordParameter("memberPasswd") // 패스워드 파라미터명 설정, default: password
                 .loginProcessingUrl("/auth/login") // 로그인 Form Action Url, default: /login
-                .successHandler( // 로그인 성공 후 핸들러
+                .successHandler(// 로그인 성공 후 핸들러
+
+
+
                         new AuthenticationSuccessHandler() { // 익명 객체 사용
                             @Override
                             public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException, IOException {
@@ -79,5 +99,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
                 .logoutSuccessUrl("/auth/login")
                 .invalidateHttpSession(true);
+
+        //H2console관련
+        http.authorizeRequests().antMatchers("/**").permitAll()
+                .and()
+                .csrf().ignoringAntMatchers("h2-console/**")
+                .and()
+                .headers()
+                .addHeaderWriter(new XFrameOptionsHeaderWriter(
+                        XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
+                .and()
+                .formLogin()
+                .loginPage("/auth/login")
+                .defaultSuccessUrl("/");
+
+    http.build();
+
+    return;
     }
 }
