@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 
-                .antMatchers("/banabada/orders/**", "/banabada/mypage/**").authenticated() // 이 주소로 시작되면 인증이 필요
+                .antMatchers("/banabada/auth/**", "/banabada/mypage/**", "/banabada/orders/**").authenticated() // 이 주소로 시작되면 인증이 필요
                 //.antMatchers(HttpMethod.POST,".spittles").authenticated()
                 .anyRequest().permitAll(); // 그게 아닌 모든 주소는 인증 필요 없음
 
