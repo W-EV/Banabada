@@ -31,7 +31,7 @@ public class ItemController {
     @GetMapping ("/banabada/createdb")
     public String alreadyCreate() {
         //Item 등록하기
-        if (itemService.findItems() == null) {
+        if (itemService.findItems() != null) {  ///??????????
             //item이 하나도 없는 경우
 
             Item item1 = new Item();
@@ -75,13 +75,15 @@ public class ItemController {
             itemService.saveItem(item4);
             itemService.saveItem(item5);
 
-            log.info("데이터베이스를 만들었습니다.");
+            List<Item> its = itemService.findItems();
+
+            log.info("데이터베이스를 만들었습니다." + its.get(0).getName() + its.get(1).getName()+ its.get(2).getName()+ its.get(3).getName()+ its.get(4).getName());
         }
         else {
             log.info("데이터베이스를 만들지 못했습니다.");
         }
 
-        return "redirect:/banabada"; // 홈 페이지
+        return "redirect:/"; // 홈 페이지
     }
         /*
         private String name;
