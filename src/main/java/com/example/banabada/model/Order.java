@@ -44,6 +44,33 @@ public class Order {
     private Payment payment;                                    // 결제
 
 
-    public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem orderItem) {
+    public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem... orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        order.setPayment(payment);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    //==비즈니스 로직==//
+    // 주문 취소
+    public void cancel() {
+        if(delivery.getStatus() == DeliveryStatus.COMP && payment.getStatus() == PaymentStatus.COMP) {
+            throw new IllegalStateException("이미 배송 및 결제 완료된 상품은 취소가 불가능합니다.");
+        }
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem: orderItems) {
+            orderItem.cancel();
+        }
     }
 }
