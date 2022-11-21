@@ -35,6 +35,4 @@ public class Member {
     private Cart cart;                                              // 장바구니
 
 
-
-
 }
