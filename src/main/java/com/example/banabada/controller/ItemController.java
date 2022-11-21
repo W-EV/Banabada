@@ -17,19 +17,21 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    /* 상품등록페이지부분 추후 추가나 수정예정
-    @GetMapping("/items/new")
+
+    /* 상품 등록 페이지 없음
+    @GetMapping("/banabada/createdb")
     public String createForm(Model model){
         model.addAttribute("form", new ItemForm());
         return "items/createItemForm";
     }
-     */
+    */
 
-    // Item 5개 미리 생성 (H2 데이터베이스 특성 문제, 게시글 등록 및 수정/삭제 기능 없애기 위함
+
+    // 상품 생성 기능 : Item 5개 미리 생성 (H2 데이터베이스 특성 문제, 게시글 등록 및 수정/삭제 기능 없애기 위함)
     @PostMapping("/banabada/createdb")
     public String alreadyCreate() {
         //Item 등록하기
-        if (itemService.findItems().stream().count() == 0) {
+        if (itemService.findItems() == null) {
             //item이 하나도 없는 경우
 
             Item item1 = new Item();
