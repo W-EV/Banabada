@@ -3,6 +3,7 @@ package com.example.banabada.repository;
 import com.example.banabada.model.Delivery;
 import com.example.banabada.model.Item;
 import com.example.banabada.model.Order;
+import com.example.banabada.model.OrderItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,11 +21,12 @@ public class DeliveryRepository {
         em.persist(delivery); } //Delivery 객체 저장
 
     //id값으로 검색하면 item 하나를 주는거
-    public Item findOne(Long id){ return em.find(Item.class, id); }
+    //OrderItem에서 주문한 아이템 가져오기
+    public OrderItem findOne(Long id){ return em.find(OrderItem.class, id); }
 
-    //findAll 하면 Item 객체 다 가져오기
-    public List<Item> findAll(){
-        return em.createQuery("select i from Item i", Item.class) //from절 뒤 Item은 ItemEntity를 뜻함
+    //findAll 하면 배송정보 가지고오기
+    public List<Delivery> findAll() {
+        return em.createQuery("select d from Delivery d", Delivery.class) //from절 뒤 Item은 ItemEntity를 뜻함
                 .getResultList();
     }
 }
