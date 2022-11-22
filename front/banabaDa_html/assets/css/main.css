@@ -1478,6 +1478,33 @@ table {
     table.alt tfoot {
       border-top: 0; }
 
+  /*결제페이지 테이블 배경*/
+  .Container{  
+    height: 132px;
+    background-color: #ffffff;    
+    
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  
+  .Container .name{
+     font-size: 40px;
+    font-weight: bold;
+    color: #00a911;
+    padding:  25;
+  }
+  
+  .infoContainer{
+    background-color: #ffffff;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #3d4449;
+    font-size: 30;
+    text-align: center;
+    display: flex;
+  }
+
 /* Button */
 input[type="submit"],
 input[type="reset"],
