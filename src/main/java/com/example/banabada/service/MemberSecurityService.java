@@ -17,12 +17,15 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
-//로그인 관련
+/*
+//로그인 관련 >> ver1에서는 Security 적용 안하고 Member정보만 받기로 결정하였음 11.22
+
 @RequiredArgsConstructor
 @Service
 public class MemberSecurityService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
+
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException{
@@ -40,3 +43,5 @@ public class MemberSecurityService implements UserDetailsService {
         return new Member(member.getEmail(), member.getPassword(), authorities);
     }
 }
+
+ */
