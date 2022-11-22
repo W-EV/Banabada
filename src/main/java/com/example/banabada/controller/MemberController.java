@@ -104,7 +104,7 @@ public class MemberController {
                         @RequestParam(name = "password", required=false) String pwd) {
 
 
-        return "/";
+        return "redirect:/";
     }
 
 

@@ -18,7 +18,7 @@ public class MemberService {
 
 //  @Autowired
     private final MemberRepository memberRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+   // private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 /*/  @Autowired
     public MemberService(MemberRepository memberRepository) {
@@ -31,9 +31,10 @@ public class MemberService {
     public Long join(Member member) {
 
         validateDuplicateMember(member);
-        String rawPassword = member.getPassword();
-        String encPassword = bCryptPasswordEncoder.encode(rawPassword); //고려사항 11.22
-        member.setPassword(encPassword);
+       //String rawPassword = member.getPassword();
+        //String encPassword = bCryptPasswordEncoder.encode(rawPassword); //고려사항 11.22
+       // member.setPassword(encPassword);
+
 
         memberRepository.save(member);
 

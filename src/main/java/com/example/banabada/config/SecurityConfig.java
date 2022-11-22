@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Security;
 
+/*
 @EnableWebSecurity // 해당 파일로 시큐리티 활성화
 @Configuration // IoC 등록
 public class SecurityConfig  {
@@ -91,8 +92,8 @@ public class SecurityConfig  {
                 .loginPage("/login") // 인증필요한 주소로 접속하면 이 주소로 이동시킴    # 로그인 html 페이지로 이름 바꿀 것
                 .loginProcessingUrl("/login") // 스프링 시큐리티가 로그인 자동 진행 POST방식으로 로그인 진행
                 .defaultSuccessUrl("/"); // 로그인이 정상적이면 "/" 로 이동
+--
 
-                 */
 
         // 로그아웃
         http.logout()
@@ -118,3 +119,5 @@ public class SecurityConfig  {
     return;
     }
 }
+
+ */
