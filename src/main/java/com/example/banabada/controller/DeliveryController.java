@@ -22,14 +22,15 @@ public class DeliveryController {
         return "deliveryForm";
     }
 
-    @PostMapping("/badabada/orders/delivery")
-    public String delivery(@RequestParam(name = "address", required = false) String address,
-                          @RequestParam(name = "status", required = false) DeliveryStatus deliveryStatus) {
+    @PostMapping("/banabada/orders/delivery")
+    public String delivery(@RequestParam(name = "address", required = false) String address)
+                          //@RequestParam(name = "status", required = false) DeliveryStatus deliveryStatus >>오류나서일단보류
+                           {
 
         Delivery delivery = new Delivery();
 
         delivery.setAddress(address);
-        delivery.setStatus(deliveryStatus.READY);
+        //delivery.setStatus(deliveryStatus.READY); 오류나서 일단 보류
 
 
         log.info("*******************배송 객체 생성 되기 전");

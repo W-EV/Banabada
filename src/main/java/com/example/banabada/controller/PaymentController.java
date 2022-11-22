@@ -24,7 +24,7 @@ public class PaymentController {
         return "paymentForm";
         }
 
-    @PostMapping("/badabada/orders/payment")
+    @PostMapping("/banabada/orders/payment")
     public String payment(@RequestParam(name = "payMethod", required = false) String payMethod,
                           @RequestParam(name = "totalPrice", required = false) int totalPrice) {
 
