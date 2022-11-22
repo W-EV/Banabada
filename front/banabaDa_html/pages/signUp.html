@@ -5,8 +5,15 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+    <style>
+        #sform {
+        display: inline-block;
+        text-align: center;
+        align-items: center;
+      }
+    </style>
 	<head>
-		<title>Generic - Editorial by HTML5 UP</title>
+		<title>회원가입</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -20,69 +27,36 @@
 						<div class="inner">
 							<!-- Header -->
                             <header id="header">
-                                <a href="../index.html" class="logo"><h1>Banabada</h1></a>
-                                <ul class="icons">
-                                    <li><a href="#"><span class="label">Login</span></a></li>
-                                    <li><a href="#"><span class="label">SignUp</span></a></li>
-                                </ul>
-                            </header>
+								<a href="../index.html" class="logo"><h1>Banabada</h1></a>
+								<ul class="icons">
+									<li><a href="login.html"><span class="label">Login</span></a></li>
+									<li><a href="signUp.html"><span class="label">SignUp</span></a></li>
+								</ul>
+							</header>
 							<!-- Content -->
 							<!-- Form -->
-                            <h3>Form</h3>
 
-                            <form method="post" action="#">
-                                <div class="row gtr-uniform">
-                                    <div class="col-6 col-12-xsmall">
-                                        <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-                                    </div>
-                                    <div class="col-6 col-12-xsmall">
-                                        <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-                                    </div>
-                                    <!-- Break -->
-                                    <div class="col-12">
-                                        <select name="demo-category" id="demo-category">
-                                            <option value="">- Category -</option>
-                                            <option value="1">Manufacturing</option>
-                                            <option value="1">Shipping</option>
-                                            <option value="1">Administration</option>
-                                            <option value="1">Human Resources</option>
-                                        </select>
-                                    </div>
-                                    <!-- Break -->
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                        <label for="demo-priority-low">Low</label>
-                                    </div>
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                        <label for="demo-priority-normal">Normal</label>
-                                    </div>
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-high" name="demo-priority">
-                                        <label for="demo-priority-high">High</label>
-                                    </div>
-                                    <!-- Break -->
-                                    <div class="col-6 col-12-small">
-                                        <input type="checkbox" id="demo-copy" name="demo-copy">
-                                        <label for="demo-copy">Email me a copy</label>
-                                    </div>
-                                    <div class="col-6 col-12-small">
-                                        <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                        <label for="demo-human">I am a human</label>
-                                    </div>
-                                    <!-- Break -->
-                                    <div class="col-12">
-                                        <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                    </div>
-                                    <!-- Break -->
-                                    <div class="col-12">
-                                        <ul class="actions">
-                                            <li><input type="submit" value="Send Message" class="primary" /></li>
-                                            <li><input type="reset" value="Reset" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
+                            <div style="margin: 50px;">
+                                
+                                <h1><center>회원가입</center></h1>
+                                <center>
+                                    <form method="post" action="../index.html">
+                                        <div class="row gtr-uniform" id="sform">
+                                            <div >
+                                                <input type="text" name="demo-name" id="demo-name" value="" placeholder="ID" style="float:left;" />
+                                                <input type="button" name="demo-button" id="button" value="중복확인"  onclick="alert('유효한 아이디입니다.')"/>
+                                            </div>
+                                            <div><input type="text" name="username" id="username" value="" placeholder="username" /></div>
+                                            <div><input type="tel" name="username" id="username" value="" placeholder="userPhone" /></div>
+                                            <div><input type="password" name="demo-email" id="demo-email" value="" placeholder="PASSWORD" /></div>
+                                            <div><input type="password" name="demo-email" id="demo-email" value="" placeholder="PASSWORD(다시 입력)" /></div>
+                                            <div><input type="email" name="demo-email" id="demo-email" value="" placeholder="banabada@banabada.com" /></div>
+                                            <!-- Break -->
+                                            <center><input type="submit" value="로그인" class="primary" /></center>
+                                        </div>
+                                    </form>
+                                </center>
+                            </div>
 
 
 			</div>
