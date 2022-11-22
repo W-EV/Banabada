@@ -32,7 +32,7 @@ public class MemberService {
 
         validateDuplicateMember(member);
         String rawPassword = member.getPassword();
-        String encPassword = bCryptPasswordEncoder.encode(rawPassword);
+        String encPassword = bCryptPasswordEncoder.encode(rawPassword); //고려사항 11.22
         member.setPassword(encPassword);
 
         memberRepository.save(member);
