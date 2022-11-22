@@ -28,7 +28,9 @@ public class Cart {
     @OneToOne(mappedBy = "cart", fetch = LAZY)  // 단방향
     private Member member;                                      // 사용자
 
-    /* 장바구니와 주문을 잇는 방법 아직 모르겠어서 주석 처리함 : 장바구니 상품과 주문 상품이 item으로 연결되어있으니까 안 해줘도 되는지..?
+    /*
+    추후 수정 예정 :: 샐러드 구독 사용자 반응 따라 세분화하여 상품 가짓수 증가할것
+    의문 : 장바구니 상품과 주문 상품이 item으로 연결되어있으니까 안 해줘도 되는지..?
     @OneToOne(mappedBy = "cart", fetch = LAZY)
     private Order order;                                        // 주문
     
