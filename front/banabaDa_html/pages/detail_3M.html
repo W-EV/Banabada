@@ -10,9 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
-		<script src="../assets/js/include-html.js"></script>
-		<script src="header.html"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -20,11 +18,14 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<!-- Header -->		
-							<script>includeHTML("footer.html");</script>
-							<header include-html="header.html"></header>
-							<script>includeHTML("header.html");</script>
-							<header id="header"></header>
+							<!-- Header -->
+							<header id="header">
+								<a href="../index.html" class="logo"><h1>Banabada</h1></a>
+								<ul class="icons">
+									<li><a href="../pages/login.html"><span class="label">Login</span></a></li>
+									<li><a href="../pages/signUp.html"><span class="label">SignUp</span></a></li>
+								</ul>
+							</header>
 							<!-- Content -->
 								<section>
 									<div class="main">
@@ -36,12 +37,52 @@
 											<h2>9,9999원</h2>
 											<p>설명설명설명</p>
 											<ul class="actions" style="padding-top: 50px;">
-												<li><a href="payment.html" class="button large">BUY</a></li>
+												<li><a href="../pages/payment.html" class="button large">BUY</a></li>
 											</ul>
 										</div>
 										
 									</div>
 								</section>
+								<hr>
+								<!-- Review -->
+								<h1>Review</h1>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th style="width: 170px;">닉네임</th>
+												<th>리뷰</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td style="width: 170px;">론 위즐리</td>
+												<td>증말 맛있어요.</td>
+											</tr>
+											<tr>
+												<td style="width: 170px;">해리 포터</td>
+												<td>어머니의 손맛</td>
+											</tr>
+											<tr>
+												<td style="width: 170px;">헤르미온느</td>
+												<td>조금 녹아서 왔어요.</td>
+											</tr>
+											<tr>
+												<td style="width: 170px;">루나 러브굿</td>
+												<td>잘못 주문했어요.</td>
+											</tr>
+											<tr>
+												<td style="width: 170px;">볼드모트</td>
+												<td>최악이네요.</td>											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2"></td>											</tr>
+										</tfoot>
+									</table>
+								</div>
+
+						</div>
 						</div>
 					</div>
 
