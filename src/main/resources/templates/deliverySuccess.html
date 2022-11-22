@@ -16,7 +16,8 @@
       <tbody>
       <tr th:each="delivery : ${deliveries}">
         <td th:text="${delivery.address}"></td>
-        <!--td th:text="${delivery.deliveryStatus}"></td-->
+        <td th:text="${delivery.status}"></td>
+        배송상태는 READY 나 COMP로 쓰기
       </tr>
       </tbody>
     </table>
