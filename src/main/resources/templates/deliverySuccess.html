@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>배송조회</title>
+  <head/>
+<body>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>배송주소</th>
+        <th>배송상태</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="delivery : ${deliveries}">
+        <td th:text="${delivery.address}"></td>
+        <td th:text="${delivery.status}"></td>
+        배송상태는 READY 나 COMP로 쓰기
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>

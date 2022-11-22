@@ -20,9 +20,9 @@ public class DeliveryRepository {
     public void save(Delivery delivery){
         em.persist(delivery); } //Delivery 객체 저장
 
-    //id값으로 검색하면 item 하나를 주는거
-    //OrderItem에서 주문한 아이템 가져오기
-    public OrderItem findOne(Long id){ return em.find(OrderItem.class, id); }
+    //id값으로 검색하면 단건조회
+    //Delivery에서 배송건 가져오기
+    public Delivery findOne(Long id){ return em.find(Delivery.class, id); }
 
     //findAll 하면 배송정보 가지고오기
     public List<Delivery> findAll() {
