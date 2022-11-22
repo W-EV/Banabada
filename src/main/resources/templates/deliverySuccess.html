@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>배송조회</title>
+  <head/>
+<body>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>배송주소</th>
+        <th>배송상태</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="delivery : ${deliveries}">
+        <td th:text="${delivery.address}"></td>
+        <td th:text="${deliver.deliveryStatus}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>
