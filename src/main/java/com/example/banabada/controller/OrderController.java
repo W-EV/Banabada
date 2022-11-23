@@ -5,6 +5,7 @@ import com.example.banabada.repository.OrderSearch;
 import com.example.banabada.service.ItemService;
 import com.example.banabada.service.MemberService;
 import com.example.banabada.service.OrderService;
+import com.example.banabada.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -22,26 +23,39 @@ public class OrderController {
     private final OrderService orderService;
     private final MemberService memberService;
     private final ItemService itemService;
+    private final PaymentService paymentService;
 
 
     // 상품 상세 페이지 --> 주문하기 버튼 클릭 --> 주문 페이지로 이동
     // 주문(상품 콤보박스 입력) --> 결제하기 버튼 클릭 --> 결제 페이지로 이동
     // 결제 페이지 폼(결제 수단 콤보박스) --> 결제 버튼 클릭 --> 결제 내역 및 배송 정보 페이지로 이동
 
+    /*
     @GetMapping("/banabada/orders")
-    public String order() { return "orderReady"; }
+    public String orders(Model model) {
+        memberService.findMembers().get(0).getOrders(0).get
+        model.addAttribute("payment", paymentService.findPayments());
+        return "orderReady";
+    }
+
+     */
+    @GetMapping("/banabada/orders")
+    public String order() {
+        return "orderReady";
+    }
 
     @PostMapping("/banabada/orders")
-    public String order(@RequestParam(name = "itemName", required = false) String itemName) {
-
-        // Order 생성자 protected 풀어놓을 것
-
-
+    public String order(@RequestParam(name = "itemName", required = false) String itemName,
+                        @RequestParam(name = "payMethod", required = false) String payMethod
+                        )
+    {
         Member member = memberService.findMembers().get(0);  // 회원이 1명밖에 없으므로.
         Item item = itemService.findName(itemName);
 
 
-        Long orderId = orderService.order(member.getId(), item.getId());
+
+        Long orderId = orderService.order(member.getId(), item.getId(), payMethod);
+        //Order order = orderService.findOrder(orderId);
         log.info("*******************주문 객체 생성 된 후");
 
         return "redirect:/"; //결제 완료 시 홈페이지로 가기 , 확인은 구독 관리 페이지에서 할 수 있도록 함
