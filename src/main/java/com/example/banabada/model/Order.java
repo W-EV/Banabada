@@ -18,6 +18,11 @@ import static javax.persistence.FetchType.LAZY;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
+    /*Order 회의
+    연결 관련 - 어떻게?
+    Order에 Delivery와 Payment가 연결된 것에 대해 어떻게 처리
+     */
+
     // 기본키
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -44,6 +49,7 @@ public class Order {
     private Payment payment;                                    // 결제
 
 
+    //주문생성 메서드
     public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
