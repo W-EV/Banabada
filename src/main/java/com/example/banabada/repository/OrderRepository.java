@@ -23,6 +23,17 @@ public class OrderRepository {
 
     public Order findOne(Long id) { return em.find(Order.class, id);}
 
+    public List<Order> findAll(){ return em.createQuery("select o from Order o", Order.class)
+            .getResultList();
+    }
+
+    /*
+    무슨 문제가 있냐면요 11.23
+    >> 1회 에 member와 1:1로 주문 연결되는데 아래 코드는 모든 주문을 다 보여줌
+    그럴 필요가 없음
+    일단 업데이트시 쓸 수 있으니 남겨두겠음
+    위의 findAll()로 변경
+
     public List<Order> findAllByString(OrderSearch orderSearch) {
 
         String jpql = "select o from Order o join o.member m";
@@ -63,6 +74,9 @@ public class OrderRepository {
         return query.getResultList();
 
     }
+
+     */
+
 
 
     /*JPA Criteria : 비추방법들
