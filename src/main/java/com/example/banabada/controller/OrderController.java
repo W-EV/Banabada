@@ -42,7 +42,7 @@ public class OrderController {
 
 
         Long orderId = orderService.order(member.getId(), item.getId());
-        log.info("*******************결제 객체 생성 된 후");
+        log.info("*******************주문 객체 생성 된 후");
 
         return "redirect:/"; //결제 완료 시 홈페이지로 가기 , 확인은 구독 관리 페이지에서 할 수 있도록 함
     }
