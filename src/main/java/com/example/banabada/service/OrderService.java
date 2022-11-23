@@ -43,7 +43,7 @@ public class OrderService {
         payment.setTotalPrice(item.getPrice());
 
         //주문 상품 생성
-        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count); //OrderItem에 메서드 생성해야함
+        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice()); //OrderItem에 메서드 생성해야함
 
         //주문 생성
         Order order = Order.createOrder(member, delivery, payment, orderItem); //Order에 메서드 생성해야함

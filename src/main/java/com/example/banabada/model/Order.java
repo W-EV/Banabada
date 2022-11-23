@@ -18,9 +18,10 @@ import static javax.persistence.FetchType.LAZY;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
-    /*Order 회의
+    /*Order 회의 11.23
     연결 관련 - 어떻게?
     Order에 Delivery와 Payment가 연결된 것에 대해 어떻게 처리
+    == >
      */
 
     // 기본키
@@ -49,6 +50,28 @@ public class Order {
     private Payment payment;                                    // 결제
 
 
+    //==연관관계 메서드==//
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    public void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery){
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
+
+    public void setPayment(Payment payment){
+        this.payment = payment;
+        payment.setOrder(this);
+    }
+
+
     //주문생성 메서드
     public static Order createOrder(Member member, Delivery delivery, Payment payment, OrderItem... orderItems) {
         Order order = new Order();
@@ -63,10 +86,6 @@ public class Order {
         return order;
     }
 
-    public void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
-    }
 
     //==비즈니스 로직==//
     // 주문 취소
@@ -78,5 +97,13 @@ public class Order {
         for (OrderItem orderItem: orderItems) {
             orderItem.cancel();
         }
+    }
+
+    //==조회 로직==//
+    // 전체 주문 가격 조회 :: 추후 버전 업데이트하며 개별상품 판매 게시 용도
+    public int getOrderPrice(){
+        return orderItems.stream()
+                .mapToInt(OrderItem::getOrderPrice)
+                .sum();
     }
 }
