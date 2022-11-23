@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
@@ -18,6 +21,7 @@ public class Payment {
 
 
     private String payMethod;// 결제 수단
+    //List<String> list = new ArrayList<>();
 
     private int totalPrice;    // 결제 금액
 
@@ -28,4 +32,9 @@ public class Payment {
     @Enumerated(EnumType.STRING)  // Value가 String로 들어감
     private PaymentStatus status;                          // 배달 상태
 
+    //== 생성자 ==//
+
 }
+
+
+
