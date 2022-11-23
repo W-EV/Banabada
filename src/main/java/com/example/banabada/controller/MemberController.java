@@ -133,7 +133,7 @@ public class MemberController {
      */
 
 
-    // 로그아웃
+    // 로그아웃 : 일단 만들어만 둠
     @GetMapping("/auth/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
