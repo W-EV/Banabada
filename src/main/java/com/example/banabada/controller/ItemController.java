@@ -38,7 +38,7 @@ public class ItemController {
             Item item1 = new Item();
             item1.setName("채소set1");
             item1.setPrice(10000);
-            item1.setStockQuantity(5);
+            item1.setStockQuantity(5);                  //상품재고관리 : 자동화x 손수입력값을 수정 / 추후에 자동화 예정(왜냐면 지금은 규모가 작으니까)
             item1.setProductImgPath("image/path1");
             item1.setProductInfo("토마토, 양배추");
 

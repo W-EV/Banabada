@@ -28,16 +28,15 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;            // 주문
     private int orderPrice;         // 주문 가격
-    private int count;              // 주문 상품 수량
+    private int count=1;              // 주문 상품 수량 :: 현재 구독은 1개만 할 수 있지만, 추후 개별 상품 분화/파생상품 등 판매 예정을 위한 업데이트를 위해 남겨둠
 
     //==생성 메서드==//
-    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+    public static OrderItem createOrderItem(Item item, int orderPrice) {
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
         orderItem.setOrderPrice(orderPrice);
-        orderItem.setCount(count);
 
-        item.removeStock(count);
+        item.removeStock(1);
         return orderItem;
     }
 
