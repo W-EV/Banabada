@@ -39,7 +39,14 @@ public class OrderService {
 
         //결제 정보 설정
         Payment payment = new Payment();
+        /*무엇이 문제냐면요 11.23
         payment.setPayMethod("신용카드"); // 결제 수단 추후 입력받는 기능 혹은 제거
+        결제수단 신용카드 || 현금 으로 설정하려함
+        사용자가 "신용카드"라고 정확히 적어야 결제가 진행되는 문제
+        >> 프론트페이지에 콤보박스 (신용카드 || 현금) 표시하고 선택하게 하기
+        >> 백엔드에서는 어떻게 해야 할까요?
+        ==>
+         */
         payment.setTotalPrice(item.getPrice());
 
         //주문 상품 생성
@@ -65,7 +72,7 @@ public class OrderService {
 
     //검색
     public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAllByString(orderSearch);
+        return orderRepository.findAll();
     }
 }
 
