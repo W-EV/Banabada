@@ -6,14 +6,17 @@ import com.example.banabada.service.ItemService;
 import com.example.banabada.service.MemberService;
 import com.example.banabada.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class OrderController {
 
     private final OrderService orderService;
@@ -29,35 +32,25 @@ public class OrderController {
     public String order() { return "orderReady"; }
 
     @PostMapping("/banabada/orders")
-    public String payment(@RequestParam(name = "itemName", required = false) String itemName) {
+    public String order(@RequestParam(name = "itemName", required = false) String itemName) {
 
-        Order order = new Order();
-        Payment payment = new Payment();
+        // Order 생성자 protected 풀어놓을 것
 
-        payment.setPayMethod(payMethod);
-        payment.setTotalPrice(totalPrice);
-        payment.setStatus(PaymentStatus.CANCEL);
 
-        log.info("*******************결제 객체 생성 되기 전");
-        paymentService.create(payment);
+        Member member = memberService.findMembers().get(0);  // 회원이 1명밖에 없으므로.
+        Item item = itemService.findName(itemName);
+
+
+        Long orderId = orderService.order(member.getId(), item.getId());
         log.info("*******************결제 객체 생성 된 후");
-        log.info(paymentService.findPayments().get(0).getPayMethod());
 
         return "redirect:/"; //결제 완료 시 홈페이지로 가기 , 확인은 구독 관리 페이지에서 할 수 있도록 함
     }
 
-    @PostMapping("/order")  // 주문하기 버튼을 눌렀을 때
-    public String order(@RequestParam("memberId") Long memberId,  // memberId는 front html의 name 속성값
-                        @RequestParam("itemId") Long itemId,
-                        @RequestParam("count") int count) {
-
-        orderService.order(memberId, itemId, count);
-        return "redirect:/orders/payments";   // 주문 버튼 클릭 시, 결제 페이지로 넘어감
-
-    }
 
 
 
+    /*
     @GetMapping("/mypage/{userId}/subscription")  // 구독 관리 페이지 == 주문 내역 페이지
     public String createForm(Model model, @PathVariable(required = false) Long userId) {
 
@@ -69,13 +62,15 @@ public class OrderController {
 
         return "/mypage/{userId}/subscription";   // redirect는 뭐지?
     }
+    */
 
 
 
 
 
 
-    //* 안 쓰는 기능일 것 같음.
+
+    /* 안 쓰는 기능일 것 같음.
     @GetMapping(value = "/orders/orderList")
     public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
         List<Order> orders = orderService.findOrders(orderSearch);
@@ -89,6 +84,8 @@ public class OrderController {
         orderService.cancelOrder(orderId);
         return "redirect:/mypage/{userId}/subscription";
     }
+
+     */
 
 
 

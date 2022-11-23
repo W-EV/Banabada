@@ -35,4 +35,5 @@ public class ItemService {
     public Item findOne(Long itemId){
         return itemRepository.findOne(itemId);
     }
+    public Item findName(String itemName) { return itemRepository.findByName(itemName).get(0); }
 }

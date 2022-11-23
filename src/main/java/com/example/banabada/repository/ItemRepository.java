@@ -30,4 +30,10 @@ public class ItemRepository {
         return em.createQuery("select i from Item i", Item.class) //from절 뒤 Item은 ItemEntity를 뜻함
                 .getResultList();
     }
+
+    public List<Item> findByName(String name) {
+        return em.createQuery("select i from Item i where i.name = :name", Item.class)
+                .setParameter("name", name)
+                .getResultList();
+    }
 }
