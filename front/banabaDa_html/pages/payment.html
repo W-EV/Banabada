@@ -25,7 +25,11 @@
 					<!-- Content -->
                     <section class="payment">
                         <div class="Container"></div>
-                        <div class="titleContainer"><h2>결제정보</h2></div>
+                        <div class="titleContainer">
+                            <div class="box">
+                                <h2>결제정보</h2>
+                            </div>
+                        </div>
                         <table class="payment_list">
                             <form>
                                 <thead>
@@ -34,16 +38,30 @@
                                         <td>상품명</td>
                                         <td>상품금액</td>
                                         <td>배송비</td>
+                                        <td>결제수단</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="payment_list_detail">
                                         <td><img src="../images/" alt="salad_3m"></td>
-                                        <td><a href="detail_3M.html">샐러드 3개월</a>
-                                            <p>/</p>
+                                        <td>
+                                            <div class="col-10">
+                                                <select name="demo-category" id="demo-category">
+                                                    <option value="">샐러드 3개월</option>
+                                                    <option value="1">샐러드 6개월</option>
+                                                    <option value="1">샐러드 12개월</option>
+                                                </select>
+                                            </div>
                                         </td>
-                                        <td class="payment_list_option">7800원</td>
-                                        <td><span class="price">116,620원</span><br>
+                                        <td class="payment_list_option">7,800원</td>
+                                        <td><span class="price">3,000원</span><br></td>
+                                        <td>
+                                            <div class="col-10">
+                                                <select name="demo-category" id="demo-category">
+                                                    <option value="">신용카드</option>
+                                                    <option value="1">계좌이체</option>
+                                                </select>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -53,29 +71,64 @@
                             </form>
                         </table>
 
+                        <div class="box">
+                            <input type="checkbox" id="1" name="1">
+                            <label for="1">양배추</label>
+                            <input type="checkbox" id="2" name="2">
+                            <label for="2">파프리카</label>
+                            <input type="checkbox" id="3" name="3">
+                            <label for="3">양파</label>
+                            <input type="checkbox" id="4" name="4">
+                            <label for="4">피클</label>
+                        </div>
+
                         <div class="Container"></div>
-                        <div class="titleContainer"><h2>배송정보</h2></div>
+                        <div class="titleContainer">
+                            <div class="box">
+                                <h2>배송정보</h2>
+                            </div>
+                        </div>
                         <table class="deliveryInfo">
                             <tbody>
                                 <tr>
                                     <td class="tg-td">주문인</td>
-                                    <td class="tg-td2">김철수</td>
+                                    <td class="tg-td2">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="tg-td">받으시는 분</td>
-                                    <td class="tg-td2">김영희</td>
+                                    <td class="tg-td2">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Receiver" />
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="tg-td">주소</td>
-                                    <td class="tg-td2">서울 도봉구 삼양로 144길</td>
+                                    <td class="tg-td2">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Address" />
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="tg-td">핸드폰 번호</td>
-                                    <td class="tg-td2">010-1234-5678</td>
+                                    <td class="tg-td2">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Phone Number" />
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="tg-td">이메일</td>
-                                    <td class="tg-td2">abcabc@gmail.com</td>
+                                    <td class="tg-td2">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Email" />
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
