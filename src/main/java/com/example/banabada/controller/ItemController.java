@@ -39,7 +39,7 @@ public class ItemController {
             item1.setName("채소set1");
             item1.setPrice(10000);
             item1.setStockQuantity(5);                  //상품재고관리 : 자동화x 손수입력값을 수정 / 추후에 자동화 예정(왜냐면 지금은 규모가 작으니까)
-            item1.setProductImgPath("src/main/resources/templates/images/banabada (1).jpg");
+            item1.setProductImgPath("images/banabada (1).jpg");
             item1.setProductInfo("토마토, 양배추");
 
             Item item2 = new Item();
@@ -60,14 +60,14 @@ public class ItemController {
             item4.setName("채소set4");
             item4.setPrice(13000);
             item4.setStockQuantity(8);
-            item4.setProductImgPath("src/main/resources/templates/images/banabada (2).jpg");
+            item4.setProductImgPath("images/banabada (2).jpg");
             item4.setProductInfo("오이,감자");
 
             Item item5 = new Item();
             item5.setName("채소set5");
             item5.setPrice(14000);
             item5.setStockQuantity(9);
-            item5.setProductImgPath("src/main/resources/templates/images/banabada (3).jpg");
+            item5.setProductImgPath("images/banabada (3).jpg");
             item5.setProductInfo("방울토마토, 올리브");
 
             itemService.saveItem(item1);

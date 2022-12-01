@@ -51,13 +51,13 @@
 									<div class="mini-posts" >
 										<!-- 상품 조회 -->
 										<article th:each="item : ${items}" style="float: left; width: 300px; margin: 30px;">
-											<a href="${item.id}" class="image">
-												<img src="${item.productImgPath}" alt="" style="height:300px;" />
+											<a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}" class="image">
+												<img th:src="${item.productImgPath}" alt="" th:if="${item.productImgPath != null}" style="height:300px;" />
 												<h2 th:text="${item.name}"></h2>
 											</a>
 											<p th:text="${item.productInfo}"></p>
 											<ul class="actions">
-												<li><a href="pages/detail_3M.html" class="button">More</a></li>
+												<li><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}" class="button">More</a></li>
 											</ul>
 										</article>
 									</div>
