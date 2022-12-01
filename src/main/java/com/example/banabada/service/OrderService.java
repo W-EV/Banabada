@@ -70,13 +70,21 @@ public class OrderService {
         order.cancel();
     }
 
+    public List<Order> findOrders(){
+        return orderRepository.findAll();
+    }
+
     //검색
     public Order findOrder(Long id) {
         return orderRepository.findOne(id);
     }
-    public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAll();
-    }
+
+    // public List<Order> findOrders(OrderSearch orderSearch){
+        //return orderRepository.findAll();
+    //}
+
+
+
 }
 
 

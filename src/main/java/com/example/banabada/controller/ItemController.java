@@ -39,35 +39,35 @@ public class ItemController {
             item1.setName("채소set1");
             item1.setPrice(10000);
             item1.setStockQuantity(5);                  //상품재고관리 : 자동화x 손수입력값을 수정 / 추후에 자동화 예정(왜냐면 지금은 규모가 작으니까)
-            item1.setProductImgPath("image/path1");
+            item1.setProductImgPath("src/main/resources/templates/images/banabada (1).jpg");
             item1.setProductInfo("토마토, 양배추");
 
             Item item2 = new Item();
             item2.setName("채소set2");
             item2.setPrice(11000);
             item2.setStockQuantity(6);
-            item2.setProductImgPath("image/path2");
+            item2.setProductImgPath("https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
             item2.setProductInfo("호박, 고구마");
 
             Item item3 = new Item();
             item3.setName("채소set3");
             item3.setPrice(12000);
             item3.setStockQuantity(7);
-            item3.setProductImgPath("image/path3");
+            item3.setProductImgPath("https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80");
             item3.setProductInfo("당근, 오이");
 
             Item item4 = new Item();
             item4.setName("채소set4");
             item4.setPrice(13000);
             item4.setStockQuantity(8);
-            item4.setProductImgPath("image/path4");
+            item4.setProductImgPath("src/main/resources/templates/images/banabada (2).jpg");
             item4.setProductInfo("오이,감자");
 
             Item item5 = new Item();
             item5.setName("채소set5");
             item5.setPrice(14000);
             item5.setStockQuantity(9);
-            item5.setProductImgPath("image/path5");
+            item5.setProductImgPath("src/main/resources/templates/images/banabada (3).jpg");
             item5.setProductInfo("방울토마토, 올리브");
 
             itemService.saveItem(item1);

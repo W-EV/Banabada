@@ -47,7 +47,7 @@ public class PaymentController {
     @GetMapping("/banabada/orders/paymentList")
     public String list(Model model) {
         model.addAttribute("payments", paymentService.findPayments());
-        return "paymentSuccess";
+        return "paymentList";
     }
 
 

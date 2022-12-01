@@ -61,6 +61,12 @@ public class OrderController {
         return "redirect:/"; //결제 완료 시 홈페이지로 가기 , 확인은 구독 관리 페이지에서 할 수 있도록 함
     }
 
+    @GetMapping("/banabada/orders/orderList")
+    public String list(Model model) {
+        model.addAttribute("orders", orderService.findOrders());
+        return "orderList";
+    }
+
 
 
 

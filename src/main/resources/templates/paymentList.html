@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>결제조회</title>
+<head/>
+<body>
+<h3>결제가 완료되었습니다.</h3>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>결제금액</th>
+                <th>결제수단</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="payment : ${payments}">
+                <td th:text="${payment.totalPrice}"></td>
+                <td th:text="${payment.payMethod}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
