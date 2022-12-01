@@ -94,7 +94,7 @@ public class ItemController {
         private String productInfo;
          */
 
-    // 상품 목록 조회
+    // 상품 목록 조회 페이지 삭제 --> 메인 페이지만으로도 가능(추후 결정)
     @GetMapping("/banabada/products")   // 상품 목록 페이지
     public String list(Model model){
         List<Item> items = itemService.findItems();
@@ -110,7 +110,7 @@ public class ItemController {
         Item item = itemService.findOne(itemId);
         if (item != null) {
             model.addAttribute("item", item);
-            return "productsDetail";
+            return "productDetail";
         } else {
             return "noproducts";    // 해당하는 상품 id가 존재하지 않습니다.
         }

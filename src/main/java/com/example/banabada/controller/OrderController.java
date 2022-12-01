@@ -25,6 +25,8 @@ public class OrderController {
     private final ItemService itemService;
     private final PaymentService paymentService;
 
+    private Long orderId;
+
 
     // 상품 상세 페이지 --> 주문하기 버튼 클릭 --> 주문 페이지로 이동
     // 주문(상품 콤보박스 입력) --> 결제하기 버튼 클릭 --> 결제 페이지로 이동
@@ -41,7 +43,7 @@ public class OrderController {
      */
     @GetMapping("/banabada/orders")
     public String order() {
-        return "orderReady";
+        return "orderList";
     }
 
     @PostMapping("/banabada/orders")
@@ -49,21 +51,30 @@ public class OrderController {
                         @RequestParam(name = "payMethod", required = false) String payMethod
                         )
     {
-        Member member = memberService.findMembers().get(0);  // 회원이 1명밖에 없으므로.
+        List<Member> members = memberService.findMembers();  // 회원이 1명밖에 없으므로.
+        Member member = members.get(0);
         Item item = itemService.findName(itemName);
 
 
 
-        Long orderId = orderService.order(member.getId(), item.getId(), payMethod);
+        orderId = orderService.order(member.getId(), item.getId(), payMethod);
         //Order order = orderService.findOrder(orderId);
         log.info("*******************주문 객체 생성 된 후");
 
-        return "redirect:/"; //결제 완료 시 홈페이지로 가기 , 확인은 구독 관리 페이지에서 할 수 있도록 함
+        return "orderList";
     }
 
     @GetMapping("/banabada/orders/orderList")
     public String list(Model model) {
-        model.addAttribute("orders", orderService.findOrders());
+        Member member = memberService.findMembers().get(0);  // 회원이 1명밖에 없으므로.
+        Order order = orderService.findOrder(orderId);
+        OrderItem orderItem = order.getOrderItems().get(0);
+        Item item = orderItem.getItem();
+
+
+        model.addAttribute("member", member);
+        model.addAttribute("item", item);
+
         return "orderList";
     }
 

@@ -1,35 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE HTML>
-      <html xmlns:th="http://www.thymeleaf.org">
-      <head>
-      <title>결제조회</title>
-<head/>
-<body>
-<div class="container">
-  <div>
-    <table>
-      <thead>
-      <tr>
-        <th>사용자</th>
-        <th>주소</th>
-        <th>주문 상태</th>
-        <th>배송 상태</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="order : ${orders}">
-        <td th:text="${order.member.getId()}"></td>
-        <td th:text="${order.orderItems.orderPrice}"></td>
-        <td th:text="${order.orderItems.count}"></td>
-        <td th:text="${order.delivery.address}"></td>
-        <td th:text="${order.status}"></td>
-        <td th:text="${order.delivery.status}"></td>
-      </tr>
-      </tbody>
-    </table>
+  <title>결제페이지</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+  <!-- Main -->
+  <div id="main">
+    <div class="inner">
+      <!-- Header -->
+      <header id="header">
+        <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+        <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+        <ul class="icons">
+          <li><a href="/auth/login"><span class="label">Login</span></a></li>
+          <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+        </ul>
+      </header>
+      <!-- Content -->
+      <section class="payment">
+        <div class="Container"></div>
+        <div class="titleContainer"><h2>결제정보</h2></div>
+        <table class="payment_list">
+          <form>
+            <thead>
+            <tr>
+              <td>이미지</td>
+              <td>상품명</td>
+              <td>상품금액</td>
+              <td>배송비</td>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 주문이 생성되지 않아 null이 되는 문제 발생!! >> html 순수 글자로 대체
+            <tr class="payment_list_detail">
+              <td><img th:src="${item.productImgPath}" alt=""/></td>
+              <td th:text="${item.name}"><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"></a>
+              </td>
+              <td class="payment_list_option" th:text="${item.price}"></td>
+              <td><span class="price">2,500</span><br>
+              </td>
+            </tr>
+            -->
+            <tr class="payment_list_detail">
+              <td><img src="images/banabada (2).jpg" alt="salad_3m"></td>
+              <td><a href="/banabada/products/2">채소set1</a>
+                <p>/</p>
+              </td>
+              <td class="payment_list_option">10,000원</td>
+              <td><span class="price">2,500원</span><br>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+          </form>
+        </table>
+
+        <div class="Container"></div>
+        <div class="titleContainer"><h2>배송정보</h2></div>
+        <table class="deliveryInfo">
+          <tbody>
+          <tr>
+            <td class="tg-td">주문인</td>
+            <!--td th:text="${member.name}" class="tg-td2"></td>-->
+            <td class="tg-td2">김철수</td>
+          </tr>
+          <tr>
+            <td class="tg-td">받으시는 분</td>
+            <td class="tg-td2">김영희</td>
+          </tr>
+          <tr>
+            <td class="tg-td">주소</td>
+            <!--td th:text="${member.address}" class="tg-td2"></td-->
+            <td class="tg-td2">서울시 도봉구</td>
+          </tr>
+          <tr>
+            <td class="tg-td">핸드폰 번호</td>
+            <!--td-- th:text="${member.phoneNumber}" class="tg-td2"></td-->
+            <td class="tg-td2">010-1234-1234</td>
+          </tr>
+          <tr>
+            <td class="tg-td">이메일</td>
+            <!--td th:text="${member.email}" class="tg-td2"></td-->
+            <td class="tg-td2">banabada@wev.com</td>
+          </tr>
+          </tbody>
+        </table>
+        <!--button class="btn">결제하기</button-->
+      </section>
+    </div>
   </div>
+</div>
+
+
+
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script src="js/breakpoints.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script>includeHTML();</script>
+
 </body>
 </html>
