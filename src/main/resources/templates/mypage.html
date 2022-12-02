@@ -26,7 +26,6 @@
       <section class="payment">
         <div class="Container"></div>
         <div class="titleContainer"><h2>결제정보</h2></div>
-        <a href="/banabada/mypage"><button class="btn">마이 페이지</button></a>
         <table class="payment_list">
           <form>
             <thead>
@@ -38,6 +37,7 @@
             </tr>
             </thead>
             <tbody>
+            <!-- 주문이 생성되지 않아 null이 되는 문제 발생!! >> html 순수 글자로 대체-->
             <tr class="payment_list_detail">
               <td><img th:src="${item.productImgPath}" alt=""/></td>
               <td th:text="${item.name}"><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"></a>
@@ -46,6 +46,15 @@
               <td><span class="price">2,500</span><br>
               </td>
             </tr>
+            <!--tr class="payment_list_detail">
+              <td><img src="images/banabada (2).jpg" alt="salad_3m"></td>
+              <td><a href="/banabada/products/2">채소set1</a>
+                <p>/</p>
+              </td>
+              <td class="payment_list_option">10,000원</td>
+              <td><span class="price">2,500원</span><br>
+              </td>
+            </tr-->
             </tbody>
             <tfoot>
 
@@ -75,14 +84,15 @@
             <td class="tg-td">핸드폰 번호</td>
             <td th:text="${member.phoneNumber}" class="tg-td2"></td>
             <!--td class="tg-td2">010-1234-1234</td>-->
-            </tr>
-            <tr>
-              <td class="tg-td">이메일</td>
-              <td th:text="${member.email}" class="tg-td2"></td>
+          </tr>
+          <tr>
+            <td class="tg-td">이메일</td>
+            <td th:text="${member.email}" class="tg-td2"></td>
             <!--td class="tg-td2">banabada@wev.com</td>-->
           </tr>
           </tbody>
         </table>
+        <!--button class="btn">결제하기</button-->
       </section>
     </div>
   </div>
@@ -91,13 +101,13 @@
 
 
 
-    <!-- Scripts -->
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/browser.min.js"></script>
-    <script src="../../js/breakpoints.min.js"></script>
-    <script src="../../js/util.js"></script>
-    <script src="../../js/main.js"></script>
-    <script>includeHTML();</script>
+<!-- Scripts -->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/browser.min.js"></script>
+<script src="../../js/breakpoints.min.js"></script>
+<script src="../../js/util.js"></script>
+<script src="../../js/main.js"></script>
+<script>includeHTML();</script>
 
 </body>
 </html>

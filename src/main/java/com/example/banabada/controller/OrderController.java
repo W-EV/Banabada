@@ -43,7 +43,7 @@ public class OrderController {
      */
     @GetMapping("/banabada/orders")
     public String order() {
-        return "orderList";
+        return "orderReady";
     }
 
     @PostMapping("/banabada/orders")
@@ -53,15 +53,19 @@ public class OrderController {
     {
         List<Member> members = memberService.findMembers();  // 회원이 1명밖에 없으므로.
         Member member = members.get(0);
-        Item item = itemService.findName(itemName);
+        if (member == null) {
+            return "signup";  // Member가 한 명도 없는 경우
+        } else {
+
+            Item item = itemService.findName(itemName);
 
 
+            orderId = orderService.order(member.getId(), item.getId(), payMethod);
+            //Order order = orderService.findOrder(orderId);
+            log.info("*******************주문 객체 생성 된 후 orderId: " + orderId.toString());
 
-        orderId = orderService.order(member.getId(), item.getId(), payMethod);
-        //Order order = orderService.findOrder(orderId);
-        log.info("*******************주문 객체 생성 된 후");
-
-        return "orderList";
+            return "orderComplete";
+        }
     }
 
     @GetMapping("/banabada/orders/orderList")
@@ -74,6 +78,8 @@ public class OrderController {
 
         model.addAttribute("member", member);
         model.addAttribute("item", item);
+
+        log.info("*******************주문 내역 itemId: " + item.getId().toString());
 
         return "orderList";
     }

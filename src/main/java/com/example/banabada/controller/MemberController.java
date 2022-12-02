@@ -4,17 +4,14 @@ import com.example.banabada.model.Member;
 import com.example.banabada.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.coyote.Request;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
@@ -49,6 +46,12 @@ public class MemberController {
 
         return "login";
     }
+
+    @GetMapping("/banabada/mypage")
+    public String mypage() {
+        return "mypage";
+    }
+
 
     /*/ 회원 가입
     @GetMapping("/auth/signup")

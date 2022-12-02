@@ -9,7 +9,7 @@
 		<title>바나바다-3개월 구독</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="../../css/main.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body class="is-preload">
@@ -30,7 +30,7 @@
 								<section>
 									<div class="main">
 										<div style="float:left ; width: 500px; margin: 50px;">
-											<span class="image main"><img th:src="${item.productImgPath}" alt="" th:if="${item.productImgPath != null}"/></span>
+											<span class="image main"><img th:src="${item.productImgPath}" alt="" th:if="${item.productImgPath != null}" /></span>
 										</div>
 										<div style="padding:100px">
 											<h1 th:text="${item.name}"></h1>
@@ -87,12 +87,11 @@
 					</div>
 
 		<!-- Scripts -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/browser.min.js"></script>
-		<script src="js/breakpoints.min.js"></script>
-		<script src="js/util.js"></script>
-		<script src="js/main.js"></script>
-		<script>includeHTML();</script>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/browser.min.js"></script>
+		<script src="../../js/breakpoints.min.js"></script>
+		<script src="../../js/util.js"></script>
+		<script src="../../js/main.js"></script>
 
 	</body>
 </html>
