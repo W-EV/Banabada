@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>주문내역</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+  <!-- Main -->
+  <div id="main">
+    <div class="inner">
+      <!-- Header -->
+      <header id="header">
+        <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+        <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+        <ul class="icons">
+          <li><a href="/auth/login"><span class="label">Login</span></a></li>
+          <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+        </ul>
+      </header>
+      <!-- Content -->
+      <section class="payment">
+        <div class="Container"></div>
+        <div class="titleContainer"><h2>결제정보</h2></div>
+        <a href="/banabada/mypage"><button class="btn">마이 페이지</button></a>
+        <table class="payment_list">
+          <form>
+            <thead>
+            <tr>
+              <td>이름</td>
+              <td>이메일</td>
+              <td>주소</td>
+              <td>구독 상태</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="payment_list_detail">
+              <td><img th:src="${member.name}" alt=""/></td>
+              <td th:text="${member.email}"></td>
+              <td th:text="${member.address}"></td>
+              <td th:text="${order.getDelivery().getStatus().toString()}"></td>
+            </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+          </form>
+        </table>
+
+        <div class="Container"></div>
+        <div class="titleContainer"><h2>구독 상품</h2></div>
+        <table class="deliveryInfo">
+          <tbody>
+          <tr>
+            <td>
+              <a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}" class="image">
+                <img th:src="${item.productImgPath}" alt="" th:if="${item.productImgPath != null}" style="height:300px;" />
+              </a>
+            </td>
+            <td>
+              <a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"><h2 th:text="${item.name}"></h2></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Scripts -->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/browser.min.js"></script>
+<script src="../../js/breakpoints.min.js"></script>
+<script src="../../js/util.js"></script>
+<script src="../../js/main.js"></script>
+<script>includeHTML();</script>
+
+</body>
+</html>

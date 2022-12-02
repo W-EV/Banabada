@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>주문 페이지</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+  <!-- Main -->
+  <div id="main">
+    <div class="inner">
+      <header id="header">
+        <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+        <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+        <ul class="icons">
+          <li><a href="/auth/login"><span class="label">Login</span></a></li>
+          <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+        </ul>
+      </header>
+      <!-- Content -->
+      <!-- Form -->
+
+      <div style="margin: 100px;">
+
+        <h1><center>주문이 완료되었습니다! </center></h1>
+        <center>
+              <!-- Break -->
+              <center><a href="/banabada/orders/orderList"><input type="button" value="주문 내역 보러가기" class="primary" /></a></center>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Scripts -->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/browser.min.js"></script>
+<script src="../../js/breakpoints.min.js"></script>
+<script src="../../js/util.js"></script>
+<script src="../../js/main.js"></script>
+
+</body>
+</html>

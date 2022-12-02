@@ -1,18 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>AreYouReadyToOrder</title>
+    <title>주문 페이지</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
+
 <body>
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <header id="header">
+                <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+                <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+                <ul class="icons">
+                    <li><a href="/auth/login"><span class="label">Login</span></a></li>
+                    <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+                </ul>
+            </header>
+            <!-- Content -->
+            <!-- Form -->
+
+            <div style="margin: 100px;">
+
+                <h1><center>주문하기</center></h1>
+                <center>
+
+                    <form action="/banabada/orders" method="POST">
+                        <div class="row gtr-uniform" id="sform">
+                            <div>
+                                상품 <input type="text" name="itemName" value="" placeholder="선택할 수 있도록
+                                        전달되는 값은 채소set1, 채소set2...5 (아니면 우리가 최종적으로 게시할 상품명)">
+                            </div>
+                            <div>
+                                결제 수단 <input type="text" name="payMethod" value="" placeholder="선택할 수 있도록. 신용카드, 현금, 페이 등">
+                            </div>
+                            <!-- Break -->
+                            <center><input type="submit" value="주문하기" class="primary" /></center>
+                        </div>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/browser.min.js"></script>
+<script src="../../js/breakpoints.min.js"></script>
+<script src="../../js/util.js"></script>
+<script src="../../js/main.js"></script>
+
+</body>
+</html>
+
+
+<!--body>
     <h1>Order</h1> <hr>
     <form action="/banabada/orders" method="POST">
-        item <input type="text" name="itemName"><br>
+        상품 <input type="text" name="itemName"><br>
         결제 수단 <input type="text" name="payMethod"><br>
         <button type="submit">결제하기</button>
     </form> <br>
 
 </body>
-</html>
+</html-->
