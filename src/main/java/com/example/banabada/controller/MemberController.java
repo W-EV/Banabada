@@ -1,7 +1,8 @@
 package com.example.banabada.controller;
 
-import com.example.banabada.model.Member;
+import com.example.banabada.model.*;
 import com.example.banabada.service.MemberService;
+import com.example.banabada.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MemberController {
 
     private final MemberService memberService;
+    private final OrderService orderService;
 
     // 회원 가입
 
@@ -48,8 +50,28 @@ public class MemberController {
     }
 
     @GetMapping("/banabada/mypage")
-    public String mypage() {
-        return "mypage";
+    public String mypage(Model model) {
+        Long orderId = orderService.findOrders().get(0).getId();
+
+        if (orderId == null) {
+            return "/";
+        } else {
+            Member member = memberService.findMembers().get(0);  // 회원이 1명밖에 없으므로
+
+            Order order = orderService.findOrder(orderId);
+            order.getPayment().setStatus(PaymentStatus.COMP);
+            order.getDelivery().setStatus(DeliveryStatus.READY);
+            OrderItem orderItem = order.getOrderItems().get(0);
+            Item item = orderItem.getItem();
+
+            model.addAttribute("order", order);
+            model.addAttribute("member", member);
+            model.addAttribute("item", item);
+
+            return "mypage";
+        }
+
+
     }
 
 

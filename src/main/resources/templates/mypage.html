@@ -26,35 +26,24 @@
       <section class="payment">
         <div class="Container"></div>
         <div class="titleContainer"><h2>결제정보</h2></div>
+        <a href="/banabada/mypage"><button class="btn">마이 페이지</button></a>
         <table class="payment_list">
           <form>
             <thead>
             <tr>
-              <td>이미지</td>
-              <td>상품명</td>
-              <td>상품금액</td>
-              <td>배송비</td>
+              <td>이름</td>
+              <td>이메일</td>
+              <td>주소</td>
+              <td>구독 상태</td>
             </tr>
             </thead>
             <tbody>
-            <!-- 주문이 생성되지 않아 null이 되는 문제 발생!! >> html 순수 글자로 대체-->
             <tr class="payment_list_detail">
-              <td><img th:src="${item.productImgPath}" alt=""/></td>
-              <td th:text="${item.name}"><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"></a>
-              </td>
-              <td class="payment_list_option" th:text="${item.price}"></td>
-              <td><span class="price">2,500</span><br>
-              </td>
+              <td><img th:src="${member.name}" alt=""/></td>
+              <td th:text="${member.email}"></td>
+              <td th:text="${member.address}"></td>
+              <td th:text="${order.getDelivery().getStatus().toString()}"></td>
             </tr>
-            <!--tr class="payment_list_detail">
-              <td><img src="images/banabada (2).jpg" alt="salad_3m"></td>
-              <td><a href="/banabada/products/2">채소set1</a>
-                <p>/</p>
-              </td>
-              <td class="payment_list_option">10,000원</td>
-              <td><span class="price">2,500원</span><br>
-              </td>
-            </tr-->
             </tbody>
             <tfoot>
 
@@ -63,36 +52,21 @@
         </table>
 
         <div class="Container"></div>
-        <div class="titleContainer"><h2>배송정보</h2></div>
+        <div class="titleContainer"><h2>구독 상품</h2></div>
         <table class="deliveryInfo">
           <tbody>
           <tr>
-            <td class="tg-td">주문인</td>
-            <td th:text="${member.name}" class="tg-td2"></td>
-            <!--td class="tg-td2">김철수</td>-->
-          </tr>
-          <tr>
-            <td class="tg-td">받으시는 분</td>
-            <td class="tg-td2">김영희</td>
-          </tr>
-          <tr>
-            <td class="tg-td">주소</td>
-            <td th:text="${member.address}" class="tg-td2"></td>
-            <!--td class="tg-td2">서울시 도봉구</td>-->
-          </tr>
-          <tr>
-            <td class="tg-td">핸드폰 번호</td>
-            <td th:text="${member.phoneNumber}" class="tg-td2"></td>
-            <!--td class="tg-td2">010-1234-1234</td>-->
-          </tr>
-          <tr>
-            <td class="tg-td">이메일</td>
-            <td th:text="${member.email}" class="tg-td2"></td>
-            <!--td class="tg-td2">banabada@wev.com</td>-->
+            <td>
+              <a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}" class="image">
+                <img th:src="${item.productImgPath}" alt="" th:if="${item.productImgPath != null}" style="height:300px;" />
+              </a>
+            </td>
+            <td>
+              <a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"><h2 th:text="${item.name}"></h2></a>
+            </td>
           </tr>
           </tbody>
         </table>
-        <!--button class="btn">결제하기</button-->
       </section>
     </div>
   </div>
