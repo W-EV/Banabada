@@ -33,12 +33,28 @@
 
                     <form action="/banabada/orders" method="POST">
                         <div class="row gtr-uniform" id="sform">
-                            <div>
+                            <!--div>
                                 상품 <input type="text" name="itemName" value="" placeholder="선택할 수 있도록
                                         전달되는 값은 채소set1, 채소set2...5 (아니면 우리가 최종적으로 게시할 상품명)">
+                            </div-->
+                            <div class="col-10">
+                                <select name="itemName">
+                                    <option value="채소set1">채소set1</option>
+                                    <option value="채소set2">채소set2</option>
+                                    <option value="채소set3">채소set3</option>
+                                    <option value="채소set4">채소set4</option>
+                                    <option value="채소set5">채소set5</option>
+                                </select>
                             </div>
-                            <div>
+                            <!--div>
                                 결제 수단 <input type="text" name="payMethod" value="" placeholder="선택할 수 있도록. 신용카드, 현금, 페이 등">
+                            </div-->
+                            <div class="col-10">
+                                <select name="payMethod" >
+                                    <option value="신용카드">신용카드</option>
+                                    <option value="계좌이체">계좌이체</option>
+                                    <option value="바나Pay">바나Pay</option>
+                                </select>
                             </div>
                             <!-- Break -->
                             <center><input type="submit" value="주문하기" class="primary" /></center>
