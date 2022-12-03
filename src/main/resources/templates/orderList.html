@@ -25,27 +25,31 @@
       <!-- Content -->
       <section class="payment">
         <div class="Container"></div>
-        <div class="titleContainer"><h2>결제정보</h2></div>
+
         <a href="/banabada/mypage"><button class="btn">마이 페이지</button></a>
+        <div class="titleContainer">
+          <div class="box"><h2>결제정보</h2></div>
+        </div>
+
         <table class="payment_list">
           <form>
             <thead>
-            <tr>
-              <td>이미지</td>
-              <td>상품명</td>
-              <td>상품금액</td>
-              <td>배송비</td>
-            </tr>
+              <tr>
+                <td>이미지</td>
+                <td>상품명</td>
+                <td>상품금액</td>
+                <td>배송비</td>
+              </tr>
             </thead>
             <tbody>
-            <tr class="payment_list_detail">
-              <td><img th:src="${item.productImgPath}" alt=""/></td>
-              <td th:text="${item.name}"><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"></a>
-              </td>
-              <td class="payment_list_option" th:text="${item.price}"></td>
-              <td><span class="price">2,500</span><br>
-              </td>
-            </tr>
+              <tr class="payment_list_detail">
+                <td><img th:src="${item.productImgPath}" alt="" style="height:300px;"/></td>
+                <td th:text="${item.name}"><a href=href="#" th:href="@{/banabada/products/{itemId}(itemId=${item.id})}"></a>
+                </td>
+                <td class="payment_list_option" th:text="${item.price}"></td>
+                <td><span class="price">2,500</span><br>
+                </td>
+              </tr>
             </tbody>
             <tfoot>
 
@@ -54,7 +58,9 @@
         </table>
 
         <div class="Container"></div>
-        <div class="titleContainer"><h2>배송정보</h2></div>
+        <div class="titleContainer">
+          <div class="box"><h2>배송정보</h2></div>
+        </div>
         <table class="deliveryInfo">
           <tbody>
           <tr>
