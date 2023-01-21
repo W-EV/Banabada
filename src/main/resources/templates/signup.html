@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<!--
+    Editorial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <style>
+        #sform {
+            display: inline-block;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <head>
+        <title>sign up</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../css/main.css" />
+    </head>
+    <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <header id="header">
+                    <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+                    <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+                    <ul class="icons">
+                        <li><a href="/auth/login"><span class="label">Login</span></a></li>
+                        <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+                    </ul>
+                </header>
+                    <!-- Content -->
+                    <!-- Form -->
+                    <div style="margin: 50px;">
+                        <h1><center>회원가입</center></h1>
+                        <center>
+                            <form action="/auth/signup" method="POST">
+                                <div class="row gtr-uniform" id="sform">
+                                    <div >
+                                        <input type="text" name="demo-name" id="demo-name" value="" placeholder="ID" style="float:left;" />
+                                        <input type="button" name="demo-button" id="button" value="중복확인"  onclick="alert('유효한 아이디입니다.')"/>
+                                    </div>
+                                    <div><input type="text" name="name" value="" placeholder="username" /></div>
+                                    <div><input type="text" name="phoneNumber" value="" placeholder="userPhone" /></div>
+                                    <div><input type="password" name="password" value="" placeholder="PASSWORD" /></div>
+                                    <div><input type="password" name="password" value="" placeholder="PASSWORD(다시 입력)" /></div>
+                                    <div><input type="text" name="email" value="" placeholder="banabada@banabada.com" /></div>
+                                    <div><input type="text" name="address" value="" placeholder="서울시 도봉구" /></div>
+                                    <!-- Break -->
+                                    <center><input type="submit" value="회원가입" class="primary" /></center>
+                                </div>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Scripts -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/browser.min.js"></script>
+        <script src="../js/breakpoints.min.js"></script>
+        <script src="../js/util.js"></script>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

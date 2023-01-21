@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>결제페이지</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+                    <!-- Header -->
+                    <header id="header">
+                        <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+                        <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+                        <ul class="icons">
+                            <li><a href="/auth/login"><span class="label">Login</span></a></li>
+                            <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+                        </ul>
+                    </header>
+
+					<!-- Content -->
+                    <section class="payment">
+                        <div class="Container"></div>
+                        <div class="titleContainer"><h2>결제정보</h2></div>
+                        <table class="payment_list">
+                            <form>
+                                <thead>
+                                    <tr th:each="payment : ${payments}">
+                                        <td>이미지</td>
+                                        <td>상품명</td>
+                                        <td>상품금액</td>
+                                        <td>배송비</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="payment_list_detail">
+                                        <td><img src="../images/" alt="salad_3m"></td>
+                                        <td><a href="productDetail.html">샐러드 3개월</a>
+                                            <p>/</p>
+                                        </td>
+                                        <td class="payment_list_option">7800원</td>
+                                        <td><span class="price">116,620원</span><br>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                        
+                                </tfoot>
+                            </form>
+                        </table>
+
+                        <div class="Container"></div>
+                        <div class="titleContainer"><h2>배송정보</h2></div>
+                        <table class="deliveryInfo">
+                            <tbody>
+                                <tr>
+                                    <td class="tg-td">주문인</td>
+                                    <td class="tg-td2">김철수</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-td">받으시는 분</td>
+                                    <td class="tg-td2">김영희</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-td">주소</td>
+                                    <td class="tg-td2">서울 도봉구 삼양로 144길</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-td">핸드폰 번호</td>
+                                    <td class="tg-td2">010-1234-5678</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-td">이메일</td>
+                                    <td class="tg-td2">abcabc@gmail.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn">결제하기</button>
+                    </section>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script>includeHTML();</script>
+
+	</body>
+</html>

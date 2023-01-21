@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+  <!--
+      Editorial by HTML5 UP
+      html5up.net | @ajlkn
+      Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html xmlns:th="http://www.thymeleaf.org">
+  <style>
+    #sform {
+      display: inline-block;
+      text-align: center;
+      align-items: center;
+    }
+  </style>
+
+  <head>
+    <title>login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+
+  <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <header id="header">
+            <!-- 로고 클릭 주의! Item DB 생성하는 버튼임. 한 번만 클릭해야 오류 없음-->
+            <a href="banabada/createdb" class="logo"><h1>Banabada</h1></a>
+            <ul class="icons">
+              <li><a href="/auth/login"><span class="label">Login</span></a></li>
+              <li><a href="/auth/signup"><span class="label">SignUp</span></a></li>
+            </ul>
+          </header>
+          <!-- Content -->
+          <!-- Form -->
+
+          <div style="margin: 100px;">
+
+            <h1><center>로그인</center></h1>
+            <center>
+
+              <form action="/auth/login" method="POST">
+                <div class="row gtr-uniform" id="sform">
+                  <div>
+                    <input type="text" name="email" value="" placeholder="ID" />
+                  </div>
+                  <div>
+                    <input type="password" name="password" value="" placeholder="PASSWORD" />
+                  </div>
+                  <!-- Break -->
+                  <center><input type="submit" value="로그인" class="primary" /></center>
+                </div>
+              </form>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<img src="/img/info.jpeg" />
+
+    <form action="/auth/login" method="GET">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+      email : <input type="text" name="username"> <br>
+      password : <input type="password" name="password"> <br>
+      <button type="submit">Login</button>
+    </form> <br>
+
+    <a href="/signup">Go to join! →</a>
+    -->
+
+    <!-- Scripts -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/browser.min.js"></script>
+    <script src="../js/breakpoints.min.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/main.js"></script>
+
+  </body>
+</html>
